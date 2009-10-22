@@ -12,7 +12,7 @@ import com.googlecode.firemblem.data.WeaponSerializer;
  */
 public class WeaponSerializationTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		WeaponSerializer ws = new WeaponSerializer();
 		try {
 			ws.load("src/com/googlecode/firemblem/data/weapons.txt");
