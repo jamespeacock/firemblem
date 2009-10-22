@@ -1,4 +1,7 @@
+package com.googlecode.firemblem.game;
+
 //Brian Clanton
+//10/21/09
 
 public class Terrain{
 	//evade boost is a percentage, so in main program you will have to do evadeboost/100
