@@ -30,7 +30,8 @@ public class Weapon implements Serializable {
 	 * @param durability
 	 * @param range
 	 */
-	private Weapon(String name, WeaponType type, float hit, float crit,
+	//Brian Clanton made this temporarily public
+	public Weapon(String name, WeaponType type, float hit, float crit,
 			int attack, int weight, int durability, int range) {
 		super();
 		this.name = name;
