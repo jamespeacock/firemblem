@@ -1,7 +1,6 @@
 package data;
 
 import game.Weapon;
-import game.WeaponType;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
