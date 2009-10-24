@@ -1,4 +1,7 @@
-package game;
+package test;
+
+import game.Terrain;
+import data.TerrainType;
 
 
 public class Tester {

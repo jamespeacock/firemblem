@@ -2,6 +2,8 @@ package game;
 
 import java.io.Serializable;
 
+import data.WeaponType;
+
 public class Weapon implements Serializable {
 
 	/**

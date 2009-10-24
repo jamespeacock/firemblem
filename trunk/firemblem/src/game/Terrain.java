@@ -1,4 +1,6 @@
 package game;
+
+import data.TerrainType;
 //package com.googlecode.firemblem.game;
 
 //Brian Clanton

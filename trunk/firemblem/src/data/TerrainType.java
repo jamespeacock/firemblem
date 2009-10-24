@@ -1,4 +1,4 @@
-package game;
+package data;
 //package com.googlecode.firemblem.game;
 
 //Brian Clanton

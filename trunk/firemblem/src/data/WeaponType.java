@@ -1,4 +1,4 @@
-package game;
+package data;
 
 public enum WeaponType {
 
