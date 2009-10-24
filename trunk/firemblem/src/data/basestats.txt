@@ -1,0 +1,15 @@
+Brian Clanton
+10/24/09
+Base stat numbers are in this order:
+lvl, hp, str, skl, spd, luc, def, res, con, mov
+MYR, LORD, KNG, FGT, ARCH, MAGE, CLR
+
+source: http://www.feshrine.net/fe6/basestats.html
+start
+1	19	6	9	10	3	3	1	5	5
+1	18	 5	 5	7	7	5	0	6	5
+1	20	7	4	3	4	11	0	14	4
+1	28	8	3	5	4	3	0	13	5
+1	18	4	4	5	2	4	0	7	5
+1	16	5	5	4	4	2	7	4	5
+1	16	1	6	8	8	0	6	4	5

@@ -2,7 +2,9 @@ package test;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 /*
  * Brian Clanton
@@ -17,13 +19,32 @@ public class StatGenerator {
 
 	public static void main(String[] args) {
 		PrintWriter outputStream = null;
-		String [] statNames = {"hp", "pow", "def", "hit", "luc", "lvl", 
-				"exp", "mov", "skl", "spd", "res", "attribute"};
+		String [] statNames = {"lvl", "hp", "str", "skl", "spd", "luc", "def", "res", "con", "mov", "exp"};
 		String [] enumNames = {"MYR", "LORD", "KNG", "FGT", "ARCH", "MAGE", "CLR"};
 		int [][] statNums = new int [enumNames.length][statNames.length];
+		int value;
+		String stuff = "";
+		
+		try{
+			Scanner r = new Scanner (new FileReader("src/data/basestats.txt"));
+			while(!stuff.equals("start")){
+				stuff = r.nextLine();
+			}//end while
+			
+			for(int i = 0; i < statNums.length; i++)
+				for(int j = 0; j < statNums[i].length - 1 && r.hasNextInt(); j++){
+					value = r.nextInt();
+					statNums[i][j] = value;
+				}//end for
+			r.close();
+			System.out.println("done reading");
+		}//end try
+		catch (FileNotFoundException e){
+			System.out.println("File not found");
+		}//end catch
 		
 		try {
-			outputStream = new PrintWriter(new FileOutputStream("src/data/stats.txt"));
+			outputStream = new PrintWriter(new FileOutputStream("src/data/SwitchStatement.txt"));
 			outputStream.println("switch(e){");
 			int i, j;
 			for(i = 0; i < enumNames.length; i++){
@@ -34,6 +55,7 @@ public class StatGenerator {
 			}//end for
 			outputStream.print("}//end switch");
 			outputStream.close();
+			System.out.println("done writing");
 		}
 		catch (FileNotFoundException e) {
 			System.out.println("Error opening the fine out.txt");

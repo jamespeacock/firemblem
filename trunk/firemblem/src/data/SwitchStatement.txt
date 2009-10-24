@@ -1,0 +1,100 @@
+switch(e){
+	case MYR:
+		lvl = 1;
+		hp = 19;
+		str = 6;
+		skl = 9;
+		spd = 10;
+		luc = 3;
+		def = 3;
+		res = 1;
+		con = 5;
+		mov = 5;
+		exp = 0;
+	break;
+
+	case LORD:
+		lvl = 1;
+		hp = 18;
+		str = 5;
+		skl = 5;
+		spd = 7;
+		luc = 7;
+		def = 5;
+		res = 0;
+		con = 6;
+		mov = 5;
+		exp = 0;
+	break;
+
+	case KNG:
+		lvl = 1;
+		hp = 20;
+		str = 7;
+		skl = 4;
+		spd = 3;
+		luc = 4;
+		def = 11;
+		res = 0;
+		con = 14;
+		mov = 4;
+		exp = 0;
+	break;
+
+	case FGT:
+		lvl = 1;
+		hp = 28;
+		str = 8;
+		skl = 3;
+		spd = 5;
+		luc = 4;
+		def = 3;
+		res = 0;
+		con = 13;
+		mov = 5;
+		exp = 0;
+	break;
+
+	case ARCH:
+		lvl = 1;
+		hp = 18;
+		str = 4;
+		skl = 4;
+		spd = 5;
+		luc = 2;
+		def = 4;
+		res = 0;
+		con = 7;
+		mov = 5;
+		exp = 0;
+	break;
+
+	case MAGE:
+		lvl = 1;
+		hp = 16;
+		str = 5;
+		skl = 5;
+		spd = 4;
+		luc = 4;
+		def = 2;
+		res = 7;
+		con = 4;
+		mov = 5;
+		exp = 0;
+	break;
+
+	case CLR:
+		lvl = 1;
+		hp = 16;
+		str = 1;
+		skl = 6;
+		spd = 8;
+		luc = 8;
+		def = 0;
+		res = 6;
+		con = 4;
+		mov = 5;
+		exp = 0;
+	break;
+
+}//end switch
