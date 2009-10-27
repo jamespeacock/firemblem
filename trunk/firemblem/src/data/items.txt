@@ -1,0 +1,20 @@
+Vulnerary, 3, Restorative, 10
+Elixir, 3, Restorative, 50
+Angelic Robe, 1, Statplus, HP, 7
+Energy Ring, 1, Statplus, STR, 2
+Secret Book, 1, Statplus, SKL, 2
+Speedwing, 1, Statplus, SPD, 2
+Goddess Icon, 1, Statplus, LUC, 2
+Dragonshield, 1, Statplus, DEF, 2
+Talisman, 1, Statplus, RES, 2
+Swiftsole, 1, Statplus, MOV, 2
+Body Ring, 1, Statplus, CON, 2
+Hero Crest, 1, Upgrade
+Knight Crest, 1, Upgrade
+Orion's Bolt, 1, Upgrade
+Elysian Whip, 1, Upgrade
+Guiding Ring, 1, Upgrade
+Ocean Seal, 1, Upgrade
+Master Seal, 1, Upgrade
+Lunar Brace, 1, Upgrade
+Solar Brace, 1, Upgrade
