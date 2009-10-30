@@ -1,3 +1,5 @@
+package game;
+
 //we're gonna need to replace cell with terrain i believe - Brian Clanton
 
 import java.awt.*;
