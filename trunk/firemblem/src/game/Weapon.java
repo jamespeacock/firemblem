@@ -11,10 +11,11 @@ public class Weapon implements Serializable {
 	 */
 	private static final long serialVersionUID = -8648673134412314167L;
 
+	//Brian Clanton changed hit and crit from floats to ints to match his pattern for percentages.
 	public String name;
 	public WeaponType type;
-	public float hit;
-	public float crit;
+	public int hit;
+	public int crit;
 	public int attack;
 	public int weight;
 	public int durability;
@@ -31,7 +32,7 @@ public class Weapon implements Serializable {
 	 * @param range
 	 */
 	// Brian Clanton made this temporarily public
-	public Weapon(String name, WeaponType type, float hit, float crit,
+	public Weapon(String name, WeaponType type, int hit, int crit,
 			int attack, int weight, int durability, int range) {
 		super();
 		this.name = name;
@@ -44,13 +45,13 @@ public class Weapon implements Serializable {
 		this.range = range;
 	}
 
-	public static Weapon forgeWeapon(String name, WeaponType type, float hit,
-			float crit, int attack, int weight, int durability, int range) {
+	public static Weapon forgeWeapon(String name, WeaponType type, int hit,
+			int crit, int attack, int weight, int durability, int range) {
 		if (type != WeaponType.STAFF)
 			return new Weapon(name, type, hit, crit, attack, weight,
 					durability, range);
 		else
-			return new Weapon(name, type, -1.0f, -1.0f, attack, -1, durability,
+			return new Weapon(name, type, -1, -1, attack, -1, durability,
 					range);
 	}
 
@@ -60,8 +61,8 @@ public class Weapon implements Serializable {
 		s += "Name: " + name;
 		s += "\nType: " + type.toString();
 		s += "\nAttack: " + attack;
-		s += "\nHit: " + hit;
-		s += "\nCritical: " + crit;
+		s += "\nHit: " + hit + "%";
+		s += "\nCritical: " + crit + "%";
 		s += "\nWeight: " + weight;
 		s += "\nDurability: " + durability;
 		s += "\nRange: " + range;

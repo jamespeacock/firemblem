@@ -9,6 +9,7 @@ import java.awt.Point;
 import data.CharacterType;
 import data.StatType;
 import data.TerrainType;
+import data.WeaponType;
 
 public class Character {
 	public String name;
@@ -17,6 +18,7 @@ public class Character {
 	public int index = 0;
 	public StatType status;
 	public Point position;
+	public Weapon activeWeapon = null;
 	
 	public Character(){
 		name = "";
@@ -31,11 +33,11 @@ public class Character {
 		spd = 0;
 		res = 0;
 		con = 0;
-		//position = 
-		status = StatType.NONE;
+		position = new Point(0,0);
+		status = StatType.NONE; 
 	}//end default constructor
 	
-	public Character(CharacterType e) {
+	public Character(CharacterType e, int x, int y) {
 		switch(e){
 		case MYR:
 			name = "Myrmidon";
@@ -143,12 +145,12 @@ public class Character {
 		break;
 
 		}//end switch
-		
+		position = new Point(x,y);
 		status = StatType.NONE;
 	}//end constructor
 
 	public Terrain getTerrain(Map m){
-		return m.getGrid()[mapX][mapY];
+		return m.getGrid()[(int) position.getX()][(int) position.getY()];
 	}//end getTerrain
 	
 	public void addWeapon(Weapon a){
@@ -156,25 +158,70 @@ public class Character {
 		index++;
 	}//end addWeapon
 	
-	public int getAttackSpeed(Weapon a){
-		return spd + con - a.weight;
+	public int getAttackSpeed(){
+		return spd + con - activeWeapon.weight;
 	}//end getAttackSpeed
 	
+	public void setActiveWeapon(int a){
+		activeWeapon = inventory[a];
+	}//end setActiveWeapon
+	
+	public int getHitRate(Character target){
+		return (int) 2 * skl + .5 * luc + activeWeapon.hit  /* + bonuses*/ - target.getEvade();
+	}//end getHitRate
+	
+	public int getEvade(Map m){
+		int e = 2 * getAttackSpeed() + luc;
+		return getTerrain(m).getEvadeBonus(e);
+	}//end getEvade
+	
+	private boolean isNotMagic(){
+		boolean check;
+		check = activeWeapon.type != WeaponType.ANIMA && activeWeapon.type != WeaponType.LIGHT 
+			&& activeWeapon.type != WeaponType.DARK;
+		return check;
+	}//end isNotMagic
+	
+	public int getDamage(Character target){
+		if(isNotMagic())
+			return str + activeWeapon.attack /* + bonuses*/ - target.getEffectiveDefense();
+		else
+			return str + activeWeapon.attack /* + bonuses*/ - target.getEffectiveResistance();
+	}//end getDamage
+	
+	public int getEffectiveDefense(){
+		return getTerrain(m).getDefenseBonus(def);
+	}//end getEffectiveDefense
+	
+	public int getEffectiveResistance(){
+		return getTerrain(m).getDefenseBonus(res);
+	}//end getEffectiveResistance
+	
 	/*
-	 * These are the methods to be added:
-	 * updateTerrainBonuses
-	 * getHitRate
-	 * getEvade
-	 * getDamage
-	 * getCriticalEvade
-	 * getCriticalRate
-	 * getBattleDefense
-	 * getDefenseBonus
-	 * getEvadeBonus
-	 * getDamageBonus
-	 * getHitRateBonus
-	 * getStaffHitRate
-	 * getStaffEvade
+	 * this applies to getCriticalEvade and getCriticalRate
+	 * will return number that represents a percentage
+	 * ex: return 20 = 20%
+	 */
+	public int getCriticalEvade(){
+		return getTerrain(m).getEvadeBonus(luc) /* + bonuses*/;
+	}//end getCriticalEvade
+	
+	public int getCriticalRate(Character target){
+		return (int) .5 * skl + activeWeapon.crit /* + bonuses*/ - target.getCriticalEvade();
+	}//end getCriticalRate
+	
+	public int getStaffEvade(Point t){
+		return res * 5 + (int) (position.distance(t)) * 2 /* + bonuses*/;
+	}//end getStaffEvade
+	
+	public int getStaffHitRate(Character target){
+		return 30 + str * 5 + skl /* + bonuses*/ - target.getStaffEvade(target.position);
+	}//end getStaffHitRate
+	
+	
+	/*
+	 * I'm not sure where the map is going to be located in the main program, this is why this 
+	 * class has errors.
 	 */
 	
 }

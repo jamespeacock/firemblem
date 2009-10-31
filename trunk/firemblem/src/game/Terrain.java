@@ -108,7 +108,14 @@ public class Terrain{
 		return (int) Math.floor(baseStat + evadeBoost/100 * baseStat);
 	}//end getEvadeBonus
 
+	public int getDefenseBonus(int baseStat){
+		return baseStat + defenseBoost;
+	}//end getDefenseBonus
 	
+	/*
+	 * Methods to be created:
+	 * getMoveDecrease
+	 */
 
 }//end class Terrain
 
