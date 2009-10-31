@@ -3,6 +3,11 @@ package game;
 import java.awt.Color;
 import java.awt.Graphics;
 
+/**
+ * 
+ * @author Xiagu
+ *
+ */
 public class Cell
 {
 	public static final int TER_EMPTY = 0,
