@@ -7,12 +7,13 @@ import data.TerrainType;
 //10/21/09
 
 public class Terrain{
-	//evade boost is a percentage, so in main program you will have to do evadeboost/100
-	private int evadeBoost;
-	private int defenseBoost;
-	private int moveEffect;
-	private String name;
-	private boolean occupied;
+	//evade boost is a percentage
+	public int evadeBoost;
+	public int defenseBoost;
+	public int moveEffect;
+	public String name;
+	public boolean occupied;
+	public TerrainType type;
 
 	public Terrain(){
 		evadeBoost=0;
@@ -20,9 +21,11 @@ public class Terrain{
 		moveEffect=0;
 		name="?";
 		occupied=false;
+		type = TerrainType.GRASS;
 	}//end default constructor
 
 	public Terrain(TerrainType t){
+		type = t;
 		switch(t){
 			case WOODS:
 				evadeBoost = 20;
@@ -95,52 +98,15 @@ public class Terrain{
 		moveEffect=0;
 	}//end constructor
 
-	public int getEvadeBoost() {
-		return evadeBoost;
-	}
-
-	public void setEvadeBoost(int evadeBoost) {
-		this.evadeBoost = evadeBoost;
-	}
-
-	public int getDefenseBoost() {
-		return defenseBoost;
-	}
-
-	public void setDefenseBoost(int defenseBoost) {
-		this.defenseBoost = defenseBoost;
-	}
-
-	public int getMoveEffect() {
-		return moveEffect;
-	}
-
-	public void setMoveEffect(int moveEffect) {
-		this.moveEffect = moveEffect;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public boolean isOccupied() {
-		return occupied;
-	}
-
-	public void setOccupied(boolean occupied) {
-		this.occupied = occupied;
-	}
-
 	@Override
 	public String toString() {
 		return "" + name + "\ndefenseBoost=" + defenseBoost + "\nevadeBoost="
 				+ evadeBoost + "\nmoveEffect=" + moveEffect + "\noccupied=" + occupied;
 	}
 	
+	public int getEvadeBonus(int baseStat){
+		return (int) Math.floor(baseStat + evadeBoost/100 * baseStat);
+	}//end getEvadeBonus
 
 	
 
