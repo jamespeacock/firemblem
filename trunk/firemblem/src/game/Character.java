@@ -5,16 +5,18 @@ package game;
  * 
  * Formula Source: http://www.gamefaqs.com/portable/gbadvance/file/563015/36403
  */
+import java.awt.Point;
 import data.CharacterType;
 import data.StatType;
 import data.TerrainType;
 
 public class Character {
-	private String name;
-	private Weapon [] inventory = new  Weapon [5];
-	private int hp, str, def, luc, lvl, exp, mov, skl, spd, res, con;
-	private int position = 0, mapX, mapY;
-	private StatType status;
+	public String name;
+	public Weapon [] inventory = new  Weapon [5];
+	public int hp, str, def, luc, lvl, exp, mov, skl, spd, res, con;
+	public int index = 0;
+	public StatType status;
+	public Point position;
 	
 	public Character(){
 		name = "";
@@ -29,8 +31,7 @@ public class Character {
 		spd = 0;
 		res = 0;
 		con = 0;
-		mapX = 0;
-		mapY = 0;
+		//position = 
 		status = StatType.NONE;
 	}//end default constructor
 	
@@ -142,129 +143,17 @@ public class Character {
 		break;
 
 		}//end switch
-		mapX = 0;
-		mapY = 0;
+		
 		status = StatType.NONE;
 	}//end constructor
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Weapon[] getInventory() {
-		return inventory;
-	}
-	public void setInventory(Weapon[] inventory) {
-		this.inventory = inventory;
-	}
-	public int getHp() {
-		return hp;
-	}
-	public void setHp(int hp) {
-		this.hp = hp;
-	}
-	public int getDef() {
-		return def;
-	}
-	public void setDef(int def) {
-		this.def = def;
-	}
-	public int getLuc() {
-		return luc;
-	}
-	public void setLuc(int luc) {
-		this.luc = luc;
-	}
-	public int getLvl() {
-		return lvl;
-	}
-	public void setLvl(int lvl) {
-		this.lvl = lvl;
-	}
-	public int getExp() {
-		return exp;
-	}
-	public void setExp(int exp) {
-		this.exp = exp;
-	}
-	public int getMov() {
-		return mov;
-	}
-	public void setMov(int mov) {
-		this.mov = mov;
-	}
-	public int getSkl() {
-		return skl;
-	}
-	public void setSkl(int skl) {
-		this.skl = skl;
-	}
-	public int getSpd() {
-		return spd;
-	}
-	public void setSpd(int spd) {
-		this.spd = spd;
-	}
-	public int getRes() {
-		return res;
-	}
-	public void setRes(int res) {
-		this.res = res;
-	}
-	public int getStr() {
-		return str;
-	}
-	public void setStr(int str) {
-		this.str = str;
-	}
-	public int getCon() {
-		return con;
-	}
-	public void setCon(int con) {
-		this.con = con;
-	}
-	
-	public int getPosition() {
-		return position;
-	}
-
-	public void setPosition(int position) {
-		this.position = position;
-	}
-
-	public int getMapX() {
-		return mapX;
-	}
-
-	public void setMapX(int mapX) {
-		this.mapX = mapX;
-	}
-
-	public int getMapY() {
-		return mapY;
-	}
-
-	public void setMapY(int mapY) {
-		this.mapY = mapY;
-	}
-
-	public StatType getStatus() {
-		return status;
-	}
-
-	public void setStatus(StatType status) {
-		this.status = status;
-	}
 
 	public Terrain getTerrain(Map m){
 		return m.getGrid()[mapX][mapY];
 	}//end getTerrain
 	
 	public void addWeapon(Weapon a){
-		inventory[position] = a;
-		position++;
+		inventory[index] = a;
+		index++;
 	}//end addWeapon
 	
 	public int getAttackSpeed(Weapon a){
