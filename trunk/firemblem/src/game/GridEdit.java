@@ -2,6 +2,8 @@ package game;
 
 //we're gonna need to replace cell with terrain i believe - Brian Clanton
 
+//Arsy: no we ain't. This class uses Cell just to draw the map.
+
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
@@ -13,6 +15,12 @@ import java.io.*;
 import java.util.Date;
 import java.awt.geom.AffineTransform;
 
+/**
+ * Presumably we'll eventually develop something prettier, but this'll do for now.
+ * 
+ * @author Xiagu
+ *
+ */
 public class GridEdit extends JFrame
 {
 	public GraphicsPanel gp = new GraphicsPanel();
