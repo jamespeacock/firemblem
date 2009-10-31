@@ -6,12 +6,15 @@ package game;
  * Formula Source: http://www.gamefaqs.com/portable/gbadvance/file/563015/36403
  */
 import data.CharacterType;
+import data.StatType;
+import data.TerrainType;
 
 public class Character {
 	private String name;
 	private Weapon [] inventory = new  Weapon [5];
 	private int hp, str, def, luc, lvl, exp, mov, skl, spd, res, con;
 	private int position = 0, mapX, mapY;
+	private StatType status;
 	
 	public Character(){
 		name = "";
@@ -28,6 +31,7 @@ public class Character {
 		con = 0;
 		mapX = 0;
 		mapY = 0;
+		status = StatType.NONE;
 	}//end default constructor
 	
 	public Character(CharacterType e) {
@@ -138,6 +142,9 @@ public class Character {
 		break;
 
 		}//end switch
+		mapX = 0;
+		mapY = 0;
+		status = StatType.NONE;
 	}//end constructor
 	
 	public String getName() {
@@ -243,13 +250,25 @@ public class Character {
 		this.mapY = mapY;
 	}
 
+	public StatType getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatType status) {
+		this.status = status;
+	}
+
+	public Terrain getTerrain(Map m){
+		return m.getGrid()[mapX][mapY];
+	}//end getTerrain
+	
 	public void addWeapon(Weapon a){
 		inventory[position] = a;
 		position++;
 	}//end addWeapon
 	
 	public int getAttackSpeed(Weapon a){
-		return spd + con - a.getWeight();
+		return spd + con - a.weight;
 	}//end getAttackSpeed
 	
 	/*

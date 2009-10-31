@@ -42,7 +42,7 @@ public class WeaponSerializer {
 	public void write(String path) throws FileNotFoundException, IOException {
 		ObjectOutputStream os;
 		for(Weapon w : cache) {
-			os = new ObjectOutputStream(new FileOutputStream(((path.charAt(path.length() - 1) == '/') ? path : path + "/") + w.getName() + ".w"));
+			os = new ObjectOutputStream(new FileOutputStream(((path.charAt(path.length() - 1) == '/') ? path : path + "/") + w.name + ".w"));
 			os.writeObject(w);
 		}
 
