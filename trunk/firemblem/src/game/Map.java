@@ -3,7 +3,7 @@ package game;
 import data.TerrainType;
 
 public class Map {
-	private Terrain [][] grid;
+	public Terrain [][] grid;
 	
 	public Map(){
 		grid = null;
@@ -12,15 +12,6 @@ public class Map {
 	public Map(int x, int y){
 		grid = new Terrain [x][y];
 	}//end constructor
-	
-	
-	public Terrain[][] getGrid() {
-		return grid;
-	}
-
-	public void setGrid(Terrain[][] grid) {
-		this.grid = grid;
-	}
 
 	public void changeSpace(int x, int y, TerrainType t){
 		grid[x][y] = new Terrain(t);
