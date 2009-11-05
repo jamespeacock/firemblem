@@ -32,8 +32,9 @@ public class Weapon implements Serializable {
 	 * @param range
 	 */
 	// Brian Clanton made this temporarily public
-	public Weapon(String name, WeaponType type, int hit, int crit,
-			int attack, int weight, int durability, int range) {
+	// also changed order of parameters for testing
+	public Weapon(String name, WeaponType type, int attack, int hit,
+			int crit, int weight, int durability, int range) {
 		super();
 		this.name = name;
 		this.type = type;
@@ -44,6 +45,7 @@ public class Weapon implements Serializable {
 		this.durability = durability;
 		this.range = range;
 	}
+	
 
 	public static Weapon forgeWeapon(String name, WeaponType type, int hit,
 			int crit, int attack, int weight, int durability, int range) {

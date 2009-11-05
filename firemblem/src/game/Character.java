@@ -6,9 +6,13 @@ package game;
  * Formula Source: http://www.gamefaqs.com/portable/gbadvance/file/563015/36403
  */
 import java.awt.Point;
+import javax.swing.ImageIcon;
+
+//this import will change
+import test.AttackPhaseTester;
+
 import data.CharacterType;
 import data.StatType;
-import data.TerrainType;
 import data.WeaponType;
 
 public class Character {
@@ -19,6 +23,7 @@ public class Character {
 	public StatType status;
 	public Point position;
 	public Weapon activeWeapon = null;
+	public ImageIcon classImage;
 	
 	public Character(){
 		name = "";
@@ -147,10 +152,11 @@ public class Character {
 		}//end switch
 		position = new Point(x,y);
 		status = StatType.NONE;
+		classImage = new ImageIcon("images/" + name.toLowerCase() + ".gif");
 	}//end constructor
 
 	public Terrain getTerrain(Map m){
-		return m.getGrid()[(int) position.getX()][(int) position.getY()];
+		return m.grid[(int) position.getX()][(int) position.getY()];
 	}//end getTerrain
 	
 	public void addWeapon(Weapon a){
@@ -167,12 +173,12 @@ public class Character {
 	}//end setActiveWeapon
 	
 	public int getHitRate(Character target){
-		return (int) 2 * skl + .5 * luc + activeWeapon.hit  /* + bonuses*/ - target.getEvade();
+		return (int) ((int) 2 * skl + .5 * luc + activeWeapon.hit  /* + bonuses*/ - target.getEvade());
 	}//end getHitRate
 	
-	public int getEvade(Map m){
+	public int getEvade(){
 		int e = 2 * getAttackSpeed() + luc;
-		return getTerrain(m).getEvadeBonus(e);
+		return getTerrain(AttackPhaseTester.g).getEvadeBonus(e);
 	}//end getEvade
 	
 	private boolean isNotMagic(){
@@ -190,11 +196,11 @@ public class Character {
 	}//end getDamage
 	
 	public int getEffectiveDefense(){
-		return getTerrain(m).getDefenseBonus(def);
+		return getTerrain(AttackPhaseTester.g).getDefenseBonus(def);
 	}//end getEffectiveDefense
 	
 	public int getEffectiveResistance(){
-		return getTerrain(m).getDefenseBonus(res);
+		return getTerrain(AttackPhaseTester.g).getDefenseBonus(res);
 	}//end getEffectiveResistance
 	
 	/*
@@ -203,7 +209,7 @@ public class Character {
 	 * ex: return 20 = 20%
 	 */
 	public int getCriticalEvade(){
-		return getTerrain(m).getEvadeBonus(luc) /* + bonuses*/;
+		return getTerrain(AttackPhaseTester.g).getEvadeBonus(luc) /* + bonuses*/;
 	}//end getCriticalEvade
 	
 	public int getCriticalRate(Character target){
@@ -217,6 +223,37 @@ public class Character {
 	public int getStaffHitRate(Character target){
 		return 30 + str * 5 + skl /* + bonuses*/ - target.getStaffEvade(target.position);
 	}//end getStaffHitRate
+	
+	public String attack(Character target){
+		int hitRate, randHit, randCrit, critHitRate, critBonus = 1, damage;
+		String actions = "";
+		
+		if(target.hp > 0 && hp > 0){
+			hitRate = getHitRate(target);
+			randHit = (int) (Math.random()*100);
+			//System.out.println("(randHit|hitRate): (" + randHit + "|" + hitRate + ")");
+			if(randHit <= hitRate){
+				actions += name + " attacks " + target.name + " and hits.\n";
+				critHitRate = getCriticalRate(target);
+				randCrit = (int) (Math.random()*100);
+				//System.out.println("(randCrit|critHitRate): (" + randCrit + "|" + critHitRate + ")");
+				if(randCrit<= critHitRate){
+					critBonus = 2;
+					actions += "Critical hit\n";
+				}//end if
+				damage = getDamage(target) * critBonus;
+				target.hp -= damage;
+				actions += name + " dealt " + damage + " damage to " + target.name + ".\n";
+				if(target.hp <= 0)
+					actions += target.name + " has been killed.\n";
+				activeWeapon.durability -= 1;
+			}//end if
+			else{
+				actions += name + " attacks " + target.name + " and misses.\n";
+			}
+		}//end if
+		return actions;
+	}//end attack
 	
 	
 	/*
