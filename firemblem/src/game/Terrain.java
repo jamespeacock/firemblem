@@ -1,10 +1,10 @@
 package game;
 
 import data.TerrainType;
-//package com.googlecode.firemblem.game;
 
 //Brian Clanton
 //10/21/09
+//Forgot to add hp effects, will add later.
 
 public class Terrain{
 	//evade boost is a percentage

@@ -156,7 +156,7 @@ public class Character {
 	}//end constructor
 
 	public Terrain getTerrain(Map m){
-		return m.grid[(int) position.getX()][(int) position.getY()];
+		return m.grid[position.x][position.y];
 	}//end getTerrain
 	
 	public void addWeapon(Weapon a){
@@ -168,12 +168,17 @@ public class Character {
 		return spd + con - activeWeapon.weight;
 	}//end getAttackSpeed
 	
+	public boolean doubleAttack(Character target){
+		return (getAttackSpeed() - target.getAttackSpeed()) >= 4;
+	}//end doubleAttack
+	
 	public void setActiveWeapon(int a){
 		activeWeapon = inventory[a];
 	}//end setActiveWeapon
 	
 	public int getHitRate(Character target){
-		return (int) ((int) 2 * skl + .5 * luc + activeWeapon.hit  /* + bonuses*/ - target.getEvade());
+		return (int) ((int) 2 * skl + .5 * luc + activeWeapon.hit + getTriangleHitBoost(target) 
+				/* + bonuses*/ - target.getEvade());
 	}//end getHitRate
 	
 	public int getEvade(){
@@ -190,7 +195,8 @@ public class Character {
 	
 	public int getDamage(Character target){
 		if(isNotMagic())
-			return str + activeWeapon.attack /* + bonuses*/ - target.getEffectiveDefense();
+			return str + activeWeapon.attack + getTriangleAttackBoost(target) 
+				/* + bonuses*/ - target.getEffectiveDefense();
 		else
 			return str + activeWeapon.attack /* + bonuses*/ - target.getEffectiveResistance();
 	}//end getDamage
@@ -228,7 +234,7 @@ public class Character {
 		int hitRate, randHit, randCrit, critHitRate, critBonus = 1, damage;
 		String actions = "";
 		
-		if(target.hp > 0 && hp > 0){
+		if(target.hp > 0 && hp > 0 && isInRange(target)){
 			hitRate = getHitRate(target);
 			randHit = (int) (Math.random()*100);
 			//System.out.println("(randHit|hitRate): (" + randHit + "|" + hitRate + ")");
@@ -248,12 +254,63 @@ public class Character {
 					actions += target.name + " has been killed.\n";
 				activeWeapon.durability -= 1;
 			}//end if
-			else{
+			else
 				actions += name + " attacks " + target.name + " and misses.\n";
-			}
 		}//end if
 		return actions;
 	}//end attack
+	
+	public int getTriangleHitBoost(Character target){
+		if(isNotMagic() && target.isNotMagic()){
+			if(activeWeapon.type == WeaponType.SWORD && target.activeWeapon.type == WeaponType.AXE ||
+					activeWeapon.type == WeaponType.SWORD && target.activeWeapon.type == WeaponType.LANCE ||
+					activeWeapon.type == WeaponType.LANCE && target.activeWeapon.type == WeaponType.SWORD)
+				return 10;
+			else if(activeWeapon.type == WeaponType.AXE && target.activeWeapon.type == WeaponType.SWORD ||
+					activeWeapon.type == WeaponType.LANCE && target.activeWeapon.type == WeaponType.AXE ||
+					activeWeapon.type == WeaponType.SWORD && target.activeWeapon.type == WeaponType.LANCE)
+				return -10;
+		}//end if
+		else if(!isNotMagic() && !target.isNotMagic()){
+			if(activeWeapon.type == WeaponType.ANIMA && target.activeWeapon.type == WeaponType.LIGHT ||
+					activeWeapon.type == WeaponType.LIGHT && target.activeWeapon.type == WeaponType.DARK ||
+					activeWeapon.type == WeaponType.DARK && target.activeWeapon.type == WeaponType.ANIMA)
+				return 10;
+			else if(activeWeapon.type == WeaponType.LIGHT && target.activeWeapon.type == WeaponType.ANIMA ||
+					activeWeapon.type == WeaponType.ANIMA && target.activeWeapon.type == WeaponType.DARK ||
+					activeWeapon.type == WeaponType.DARK && target.activeWeapon.type == WeaponType.LIGHT)
+				return -10;
+		}//end else if
+		return 0;
+	}//end getTriangleHitBoost
+	
+	public int getTriangleAttackBoost(Character target){
+		if(isNotMagic() && target.isNotMagic()){
+			if(activeWeapon.type == WeaponType.SWORD && target.activeWeapon.type == WeaponType.AXE ||
+					activeWeapon.type == WeaponType.SWORD && target.activeWeapon.type == WeaponType.LANCE ||
+					activeWeapon.type == WeaponType.LANCE && target.activeWeapon.type == WeaponType.SWORD)
+				return 1;
+			else if(activeWeapon.type == WeaponType.AXE && target.activeWeapon.type == WeaponType.SWORD ||
+					activeWeapon.type == WeaponType.LANCE && target.activeWeapon.type == WeaponType.AXE ||
+					activeWeapon.type == WeaponType.SWORD && target.activeWeapon.type == WeaponType.LANCE)
+				return -1;
+		}//end if
+		else if(!isNotMagic() && !target.isNotMagic()){
+			if(activeWeapon.type == WeaponType.ANIMA && target.activeWeapon.type == WeaponType.LIGHT ||
+					activeWeapon.type == WeaponType.LIGHT && target.activeWeapon.type == WeaponType.DARK ||
+					activeWeapon.type == WeaponType.DARK && target.activeWeapon.type == WeaponType.ANIMA)
+				return 1;
+			else if(activeWeapon.type == WeaponType.LIGHT && target.activeWeapon.type == WeaponType.ANIMA ||
+					activeWeapon.type == WeaponType.ANIMA && target.activeWeapon.type == WeaponType.DARK ||
+					activeWeapon.type == WeaponType.DARK && target.activeWeapon.type == WeaponType.LIGHT)
+				return -1;
+		}//end else if
+		return 0;
+	}//end getTriangleAttackBoost
+	
+	public boolean isInRange(Character target){
+		return activeWeapon.range >= (int) position.distance(target.position) ;
+	}//end isInRange
 	
 	
 	/*
