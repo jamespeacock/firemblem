@@ -1,6 +1,6 @@
 /*
  * Brian Clanton
- * 10/3/09
+ * 10/30/09
  * 
  * Sorry images are cut off, will figure out how to fix later.
  */
@@ -45,10 +45,18 @@ public class AttackPhaseTester extends JFrame{
 			if(characterOneTurn){
 				a += one.attack(two);
 				a += two.attack(one);
+				if(one.doubleAttack(two) && two.hp > 0){
+					a += "Double Attack\n";						
+					a += one.attack(two);
+				}//end if
 			}//end if
 			else{
 				a += two.attack(one);
 				a += one.attack(two);
+				if(two.doubleAttack(one) && one.hp > 0){
+					a += "Double Attack\n";
+					a += two.attack(one);
+				}//end if
 			}//end else
 			log.setText(log.getText() + "\n" + a);
 			if(one.hp < 1){
@@ -86,6 +94,7 @@ public class AttackPhaseTester extends JFrame{
 		b = new JPanel(new FlowLayout());
 		
 		g.changeAll(TerrainType.GRASS);
+		g.changeSpace(0, 0, TerrainType.MTNS);
 		
 		start = new JButton("Attack");
 		start.addActionListener(new AttackButtonListener());
@@ -128,7 +137,7 @@ public class AttackPhaseTester extends JFrame{
 		pane.add(b);
 		pane.add(l);
 		
-		container = new JFrame("Attack Phase Tester");
+		container = new JFrame("Attack Phase Tester - Brian Clanton 10/30/09");
 		container.setContentPane(pane);
 		container.setVisible(true);
 		container.setDefaultCloseOperation(EXIT_ON_CLOSE);

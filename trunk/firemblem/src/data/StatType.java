@@ -4,5 +4,5 @@ package data;
  * 10/30/09
  */
 public enum StatType {
-	POISON, SLEEP, SILENCE, BESERK, NONE
+	POISON, SLEEP, SILENCE, BESERK, DEAD, NONE
 }
