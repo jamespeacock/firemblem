@@ -24,6 +24,7 @@ public class Character {
 	public Point position;
 	public Weapon activeWeapon = null;
 	public ImageIcon classImage;
+	public CharacterType type;
 	
 	public Character(){
 		name = "";
@@ -40,6 +41,7 @@ public class Character {
 		con = 0;
 		position = new Point(0,0);
 		status = StatType.NONE; 
+		type = null;
 	}//end default constructor
 	
 	public Character(CharacterType e, int x, int y) {
@@ -153,6 +155,7 @@ public class Character {
 		position = new Point(x,y);
 		status = StatType.NONE;
 		classImage = new ImageIcon("images/" + name.toLowerCase() + ".gif");
+		type = e;
 	}//end constructor
 
 	public Terrain getTerrain(Map m){
@@ -234,7 +237,7 @@ public class Character {
 		int hitRate, randHit, randCrit, critHitRate, critBonus = 1, damage;
 		String actions = "";
 		
-		if(target.hp > 0 && hp > 0 && isInRange(target)){
+		if(target.status != StatType.DEAD && status != StatType.DEAD && isInRange(target) && activeWeapon.type != WeaponType.STAFF){
 			hitRate = getHitRate(target);
 			randHit = (int) (Math.random()*100);
 			//System.out.println("(randHit|hitRate): (" + randHit + "|" + hitRate + ")");
@@ -250,13 +253,17 @@ public class Character {
 				damage = getDamage(target) * critBonus;
 				target.hp -= damage;
 				actions += name + " dealt " + damage + " damage to " + target.name + ".\n";
-				if(target.hp <= 0)
+				if(target.hp <= 0){
 					actions += target.name + " has been killed.\n";
+					target.status = StatType.DEAD;
+				}//end if
 				activeWeapon.durability -= 1;
 			}//end if
 			else
 				actions += name + " attacks " + target.name + " and misses.\n";
 		}//end if
+		if(activeWeapon.type == WeaponType.STAFF)
+			actions += "Staves cannot be used to attack.\n";
 		return actions;
 	}//end attack
 	
