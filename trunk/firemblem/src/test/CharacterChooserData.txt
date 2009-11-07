@@ -1,0 +1,11 @@
+Brian Clanton
+11/6/09
+
+types:
+Myrmidon
+Lord
+Knight
+Cleric
+Mage
+Archer
+Fighter
