@@ -1,0 +1,11 @@
+Woods
+Sand
+High Mountains
+Mountains
+Pillar
+Throne
+Gate
+Sea
+Village
+Tile
+Grass
