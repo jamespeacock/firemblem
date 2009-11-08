@@ -23,16 +23,14 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 import game.Character;
-import game.Weapon;
-import data.CharacterType;
+import data.ParseMethods;
 import data.StatType;
 import data.TerrainType;
-import data.WeaponType;
 import game.Map;
 
 public class AttackPhaseTester extends JFrame{
 
-	private JPanel pane, stats, b, t;
+	private JPanel pane, stats, b;
 	private JLabel img1, img2, name1 = new JLabel(),
 		name2 = new JLabel(), weapon1 = new JLabel(), weapon2 = new JLabel(), 
 		hp1 = new JLabel(), hp2  = new JLabel(), ter1 = new JLabel(), ter2 = new JLabel();
@@ -45,7 +43,7 @@ public class AttackPhaseTester extends JFrame{
 	private JMenu menu;
 	private JMenuBar menuBar;
 	private JMenuItem settings;
-	
+	public static Map g = new Map(4,4);	
 	
 	class AttackButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
@@ -54,7 +52,7 @@ public class AttackPhaseTester extends JFrame{
 				a += one.attack(two);
 				a += two.attack(one);
 				if(one.doubleAttack(two) && one.status != StatType.DEAD && two.status != StatType.DEAD){
-					a += one.name + "gets a Double Attack\n";						
+					a += one.name + " gets a Double Attack\n";						
 					a += one.attack(two);
 				}//end if
 				start.setText(two.name + "'s Attack");
@@ -72,12 +70,14 @@ public class AttackPhaseTester extends JFrame{
 			if(one.status == StatType.DEAD){
 				hp1.setText("DEAD");
 				start.setEnabled(false);
+				start.setText("Time to Reset");
 			}//end if
 			else
 				hp1.setText("" + one.hp + " / " + max1);
 			if(two.status == StatType.DEAD){
 				hp2.setText("DEAD");
 				start.setEnabled(false);
+				start.setText("Time to Reset");
 			}//end if
 			else
 				hp2.setText("" + two.hp + " / " + max2);
@@ -98,25 +98,28 @@ public class AttackPhaseTester extends JFrame{
 		}
 	}//end CharacterSetttingsListener
 	
-	public static Map g = new Map(4,4);
-	
 	public static void main(String[] args) {
+		ParseMethods.initializeCharacterSearchMap();
+		ParseMethods.initializeTerrainSearchMap();
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		CharacterChooser a = new CharacterChooser();
 	}//end main
 	
-	public AttackPhaseTester(Character c1, Character c2){
+	public AttackPhaseTester(Character c1, Character c2, TerrainType t1, TerrainType t2){
 		super("Attack Phase Tester - Brian Clanton 10/30/09");
 		pane = new JPanel();
 		pane.setLayout(new BoxLayout(pane, BoxLayout.PAGE_AXIS));
 		stats = new JPanel(new GridLayout(5, 2));
 		b = new JPanel(new FlowLayout());
 		
-		g.changeAll(TerrainType.GRASS);
-		g.changeSpace(0, 0, TerrainType.MTNS);
+		
 		
 		one = c1;
 		two = c2;
+		
+		g.changeAll(TerrainType.GRASS);
+		g.changeSpace(c1.position.x, c1.position.y, t1);
+		g.changeSpace(c2.position.x, c2.position.y, t2);
 		
 		start = new JButton();
 		start.addActionListener(new AttackButtonListener());

@@ -1,5 +1,7 @@
 package game;
 
+import java.util.TreeMap;
+
 import data.TerrainType;
 
 //Brian Clanton
@@ -111,6 +113,7 @@ public class Terrain{
 	public int getDefenseBonus(int baseStat){
 		return baseStat + defenseBoost;
 	}//end getDefenseBonus
+	
 	
 	/*
 	 * Methods to be created:

@@ -17,19 +17,21 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import data.CharacterType;
+import data.ParseMethods;
+import data.TerrainType;
 import data.WeaponType;
 import game.Character;
+import game.Terrain;
 import game.Weapon;
 
 public class CharacterChooser extends JFrame{
 	
-	private JComboBox one, two;
+	private JComboBox one, two, three, four;
 	private JLabel type1, type2;
 	private JPanel pane, panel1, panel2;
 	private String [] characterNames;
-	private CharacterType[] characterTypes = {CharacterType.MYR, CharacterType.LORD, CharacterType.KNG, CharacterType.CLR,
-			CharacterType.MAGE, CharacterType.ARCH, CharacterType.FGT};
 	private JButton finalize;
+	private String [] terrainNames;
 	
 	public CharacterChooser(){
 		super("Character Chooser - Brian Clanton 11/6/09");
@@ -38,15 +40,21 @@ public class CharacterChooser extends JFrame{
 		panel1 = new JPanel(new FlowLayout());
 		panel2 = new JPanel(new FlowLayout());
 		
-		type1 = new JLabel("Choose Character One Type: ");
-		type2 = new JLabel("Choose Character Two Type: ");
+		type1 = new JLabel("Character One Options");
+		type2 = new JLabel("Character Two Options");
 		
 		type1.setHorizontalAlignment(SwingConstants.CENTER);
+		type1.setAlignmentX(Component.CENTER_ALIGNMENT);
 		type2.setHorizontalAlignment(SwingConstants.CENTER);
+		type2.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
-		readTypes();
+		readCharacterNames();
+		readTerrainNames();
+		
 		one = new JComboBox(characterNames);
 		two = new JComboBox(characterNames);
+		three = new JComboBox(terrainNames);
+		four = new JComboBox(terrainNames);
 		
 		finalize = new JButton("Finalize");
 		finalize.addActionListener(new ActionListener(){
@@ -56,29 +64,30 @@ public class CharacterChooser extends JFrame{
 		});
 		finalize.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
-		panel1.add(type1);
 		panel1.add(one);
-		panel2.add(type2);
+		panel1.add(three);
 		panel2.add(two);
+		panel2.add(four);
+		
+		pane.add(type1);
 		pane.add(panel1);
+		pane.add(type2);
 		pane.add(panel2);
 		pane.add(finalize);
 		
 		add(pane);
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setSize(365, 150);
+		setSize(365, 175);
 		setAlwaysOnTop(true);
 	}//end constructor
 	
-	private void readTypes(){
+	private void readCharacterNames(){
 		try{
-			Scanner r = new Scanner(new FileReader("src/test/CharacterChooserData.txt"));
+			Scanner r = new Scanner(new FileReader("src/test/charactertypes.txt"));
 			String line = "";
 			ArrayList<String> t = new ArrayList<String> ();
-			
-			while(!line.equals("types:"))
-				line = r.nextLine();
+		
 			while(r.hasNext()){
 				line = r.nextLine();
 				t.add(line);
@@ -94,22 +103,48 @@ public class CharacterChooser extends JFrame{
 		}//end catch
 	}//end readTypes
 	
+	private void readTerrainNames(){
+		try{
+			Scanner r = new Scanner(new FileReader("src/test/terrains.txt"));
+			String line = "";
+			ArrayList<String> t = new ArrayList<String> ();
+			
+			while(r.hasNext()){
+				line = r.nextLine();
+				t.add(line);
+			}//end while
+			
+			terrainNames = new String [t.size()];
+			for(int i = 0; i < t.size(); i++)
+				terrainNames[i] = t.get(i);
+		}//end try
+		catch(FileNotFoundException e){
+			System.out.println("File not found.");
+			System.exit(0);
+		}//end catch
+	}//end readTypes
+	
 	private void incorporateChanges(){
-		int choiceOne = one.getSelectedIndex(), choiceTwo = two.getSelectedIndex();
+		int characterChoiceOne = one.getSelectedIndex(), characterChoiceTwo = two.getSelectedIndex(), 
+			terrainChoiceOne = three.getSelectedIndex(), terrainChoiceTwo = four.getSelectedIndex();
 		Character c1, c2;
+		TerrainType t1, t2;
 		
 		finalize.setEnabled(false);
 		one.setEnabled(false);
 		two.setEnabled(false);
 		
-		c1 = new Character(characterTypes[choiceOne], 0, 0);
-		c2 = new Character(characterTypes[choiceTwo], 0, 1);
+		c1 = new Character(ParseMethods.toCharacterType(characterNames[characterChoiceOne]), 0, 0);
+		c2 = new Character(ParseMethods.toCharacterType(characterNames[characterChoiceTwo]), 0, 1);
 		
 		c1.activeWeapon = getActiveWeapon(c1);
 		c2.activeWeapon = getActiveWeapon(c2);
 		
+		t1 = ParseMethods.toTerrainType(terrainNames[terrainChoiceOne]);
+		t2 = ParseMethods.toTerrainType(terrainNames[terrainChoiceTwo]);
+		
 		dispose();
-		AttackPhaseTester test = new AttackPhaseTester(c1, c2);		
+		AttackPhaseTester test = new AttackPhaseTester(c1, c2, t1, t2);
 		
 	}//end incorporateChanges
 		

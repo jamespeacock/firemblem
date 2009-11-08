@@ -6,6 +6,8 @@ package game;
  * Formula Source: http://www.gamefaqs.com/portable/gbadvance/file/563015/36403
  */
 import java.awt.Point;
+import java.util.TreeMap;
+
 import javax.swing.ImageIcon;
 
 //this import will change
@@ -315,14 +317,10 @@ public class Character {
 		return 0;
 	}//end getTriangleAttackBoost
 	
-	public boolean isInRange(Character target){
+	private boolean isInRange(Character target){
 		return activeWeapon.range >= (int) position.distance(target.position) ;
 	}//end isInRange
 	
 	
-	/*
-	 * I'm not sure where the map is going to be located in the main program, this is why this 
-	 * class has errors.
-	 */
 	
-}
+}//end class Character
