@@ -28,7 +28,7 @@ public class Cell
 		name = 0;
 	}
 	
-	public void draw(Graphics g, int x, int y)
+	public void draw(Graphics g, int x, int y, int size)
 	{
 		switch(terrain)
 		{
@@ -48,6 +48,6 @@ public class Cell
 			g.setColor(Color.magenta.darker().darker().darker());
 		}
 		
-		g.fillRect(x, y, 40, 40);
+		g.fillRect(x, y, size, size);
 	}
 }
