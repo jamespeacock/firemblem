@@ -104,12 +104,22 @@ public class Terrain{
 	public String toString() {
 		return "" + name + "\ndefenseBoost=" + defenseBoost + "\nevadeBoost="
 				+ evadeBoost + "\nmoveEffect=" + moveEffect + "\noccupied=" + occupied;
-	}
+	}//end toString
 	
+	/**
+	 * this method gets the evade bonus given a characters base stat.
+	 * @param baseStat
+	 * @return evade bonus
+	 */
 	public int getEvadeBonus(int baseStat){
 		return (int) Math.floor(baseStat + evadeBoost/100 * baseStat);
 	}//end getEvadeBonus
 
+	/**
+	 * this method gets the defense bonus given a characters base stat.
+	 * @param baseStat
+	 * @return defense bonus
+	 */
 	public int getDefenseBonus(int baseStat){
 		return baseStat + defenseBoost;
 	}//end getDefenseBonus
@@ -118,6 +128,7 @@ public class Terrain{
 	/*
 	 * Methods to be created:
 	 * getMoveDecrease
+	 * getHpIncrease
 	 */
 
 }//end class Terrain

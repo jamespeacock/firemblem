@@ -19,6 +19,11 @@ import data.CharacterType;
 import data.StatType;
 import data.WeaponType;
 
+/**
+ * 
+ * @author Brian Clanton
+ *
+ */
 public class Character {
 	public String name;
 	public Weapon [] inventory = new  Weapon [5];
@@ -89,37 +94,78 @@ public class Character {
 		type = e;
 	}//end constructor
 
+	/**
+	 * This method returns the terrain of the space that the unit is occupying.
+	 * @param m
+	 * @return terrain
+	 */
 	public Terrain getTerrain(Map m){
 		return m.grid[position.x][position.y];
 	}//end getTerrain
 
+	/**
+	 * 
+	 * @param a
+	 */
 	public void addWeapon(Weapon a){
 		inventory[index] = a;
 		index++;
 	}//end addWeapon
 
+	/**
+	 * Gets attack speed.
+	 * @return attack speed
+	 */
 	public int getAttackSpeed(){
 		return spd + con - activeWeapon.weight;
 	}//end getAttackSpeed
 
+	/**
+	 * Returns true if the Character can perform a double attack. In order for this
+	 * to happen, the Character's attack speed must be a least 4 points higher than
+	 * the opponent's attack speed.
+	 * @param target
+	 * @return true if double attack, false if not
+	 */
 	public boolean doubleAttack(Character target){
 		return (getAttackSpeed() - target.getAttackSpeed()) >= 4;
 	}//end doubleAttack
 
+	/**
+	 * Sets a Character's equipped weapon.
+	 * @param a
+	 */
 	public void setActiveWeapon(int a){
 		activeWeapon = inventory[a];
 	}//end setActiveWeapon
 
+	/**
+	 * Gets hit rate.
+	 * will return number that represents a percentage
+	 * ex: return 20 = 20%
+	 * @param target
+	 * @return hit rate
+	 */
 	public int getHitRate(Character target){
 		return (int) ((int) 2 * skl + .5 * luc + activeWeapon.hit + getTriangleHitBoost(target) 
 				/* + bonuses*/ - target.getEvade());
 	}//end getHitRate
 
+	/**
+	 * Gets evade rate.
+	 * will return number that represents a percentage
+	 * ex: return 20 = 20%
+	 * @return
+	 */
 	public int getEvade(){
 		int e = 2 * getAttackSpeed() + luc;
 		return getTerrain(AttackPhaseTester.g).getEvadeBonus(e);
 	}//end getEvade
 
+	/**
+	 * Checks to see if the equipped weapon is magic.
+	 * @return true if weapon is not magic, false if weapon is magic
+	 */
 	private boolean isNotMagic(){
 		boolean check;
 		check = activeWeapon.type != WeaponType.ANIMA && activeWeapon.type != WeaponType.LIGHT 
@@ -127,6 +173,11 @@ public class Character {
 		return check;
 	}//end isNotMagic
 
+	/**
+	 * Gets damage.
+	 * @param target
+	 * @return damage
+	 */
 	public int getDamage(Character target){
 		if(isNotMagic())
 			return str + activeWeapon.attack + getTriangleAttackBoost(target) 
@@ -135,23 +186,39 @@ public class Character {
 			return str + activeWeapon.attack /* + bonuses*/ - target.getEffectiveResistance();
 	}//end getDamage
 
+	/**
+	 * Gets defense in battle.
+	 * @return battle defense
+	 */
 	public int getEffectiveDefense(){
 		return getTerrain(AttackPhaseTester.g).getDefenseBonus(def);
 	}//end getEffectiveDefense
 
+	/**
+	 * Gets resistance in battle.
+	 * @return battle resistance
+	 */
 	public int getEffectiveResistance(){
 		return getTerrain(AttackPhaseTester.g).getDefenseBonus(res);
 	}//end getEffectiveResistance
 
-	/*
-	 * this applies to getCriticalEvade and getCriticalRate
+	/**
+	 * Gets critical evade rate.
 	 * will return number that represents a percentage
 	 * ex: return 20 = 20%
+	 * @return critical evade
 	 */
 	public int getCriticalEvade(){
 		return getTerrain(AttackPhaseTester.g).getEvadeBonus(luc) /* + bonuses*/;
 	}//end getCriticalEvade
 
+	/**
+	 * Gets critical hit rate.
+	 * will return number that represents a percentage
+	 * ex: return 20 = 20%
+	 * @param target
+	 * @return critical rate
+	 */
 	public int getCriticalRate(Character target){
 		return (int) .5 * skl + activeWeapon.crit /* + bonuses*/ - target.getCriticalEvade();
 	}//end getCriticalRate
@@ -249,7 +316,5 @@ public class Character {
 	private boolean isInRange(Character target){
 		return activeWeapon.range >= (int) position.distance(target.position) ;
 	}//end isInRange
-
-
 
 }//end class Character

@@ -28,6 +28,12 @@ import data.StatType;
 import data.TerrainType;
 import game.Map;
 
+/**
+ * 
+ * @author Brian Clanton
+ *
+ */
+
 public class AttackPhaseTester extends JFrame{
 
 	private JPanel pane, stats, b;
@@ -45,6 +51,7 @@ public class AttackPhaseTester extends JFrame{
 	private JMenuItem settings;
 	public static Map g = new Map(4,4);	
 	
+	//Action listener for the attack button
 	class AttackButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			String a = "";
@@ -90,15 +97,17 @@ public class AttackPhaseTester extends JFrame{
 			else
 				hp2.setText("" + two.hp + " / " + max2);
 			characterOneTurn = !characterOneTurn;
-		}
+		}//end actionPerformed
 	}//end AttackButtonListener
 	
+	//Action listener for reset button
 	class ResetButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			initialize();
 		}
 	}//end ResetButtonListener
 	
+	//Action listener for menu item
 	class CharacterSettingsListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			dispose();
@@ -115,23 +124,28 @@ public class AttackPhaseTester extends JFrame{
 	
 	public AttackPhaseTester(Character c1, Character c2, TerrainType t1, TerrainType t2){
 		super("Attack Phase Tester - Brian Clanton 10/30/09");
+		//initialization of containers
 		pane = new JPanel();
 		pane.setLayout(new BoxLayout(pane, BoxLayout.PAGE_AXIS));
 		stats = new JPanel(new GridLayout(5, 2));
 		b = new JPanel(new FlowLayout());
 		
+		//initialization of characters
 		one = c1;
 		two = c2;
 		
+		//initialization of map
 		g.changeAll(TerrainType.GRASS);
 		g.changeSpace(c1.position.x, c1.position.y, t1);
 		g.changeSpace(c2.position.x, c2.position.y, t2);
 		
+		//initialization of JButtons
 		start = new JButton();
 		start.addActionListener(new AttackButtonListener());
 		reset = new JButton("Reset");
 		reset.addActionListener(new ResetButtonListener());
 		
+		//initialization of JMenu
 		settings = new JMenuItem("Change Characters...");
 		settings.addActionListener(new CharacterSettingsListener());
 		menu = new JMenu("Settings");
@@ -139,9 +153,10 @@ public class AttackPhaseTester extends JFrame{
 		menuBar = new JMenuBar();
 		menuBar.add(menu);
 		setJMenuBar(menuBar);
-		
+	
 		initialize();
 		
+		//centers text in JLabels
 		name1.setHorizontalAlignment(SwingConstants.CENTER);
 		name2.setHorizontalAlignment(SwingConstants.CENTER);
 		weapon1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -155,7 +170,8 @@ public class AttackPhaseTester extends JFrame{
 		
 		img1 = new JLabel(one.classImage);
 		img2 = new JLabel(two.classImage);
-				
+		
+		//objects added to stats JPanel
 		stats.add(name1);
 		stats.add(name2);
 		stats.add(img1);
@@ -167,14 +183,14 @@ public class AttackPhaseTester extends JFrame{
 		stats.add(hp1);
 		stats.add(hp2);
 		
+		//objects added to button JPanel
 		b.add(start);
 		b.add(reset);
 		
+		//makes the log scrollable
 		l = new JScrollPane(log, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		/*t = new JPanel();
-		t.add(l);
-		*/
 		
+		//panels added to container
 		pane.add(stats);
 		pane.add(b);
 		pane.add(l);
@@ -206,4 +222,4 @@ public class AttackPhaseTester extends JFrame{
 		log.setText("");
 	}//end initialize	
 
-}
+}//end class AttackPhaseTester
