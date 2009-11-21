@@ -20,9 +20,6 @@ import java.awt.geom.AffineTransform;
  * Presumably we'll eventually develop something prettier, but this'll do for
  * now.
  * 
- * TODO: Give Terrains associated images, groups of possible images, or
- * animations (ex. water tiles).
- * 
  * @author Xiagu
  */
 public class GridEdit extends JFrame {
@@ -130,8 +127,8 @@ public class GridEdit extends JFrame {
 					}
 				}
 
-				// Draw labels on the right. TODO: Replace with drawing Terrain
-				// images.
+				// Draw labels on the right.
+				// TODO: Replace with drawing Terrain images.
 				AffineTransform savedAT = buffer.getTransform();
 				buffer.translate(height, 0);
 				drawIcons(buffer);
@@ -182,6 +179,7 @@ public class GridEdit extends JFrame {
 				} else {
 					// This was code for letting you pick the color you wanted
 					// to fill cells with, basically.
+
 					// TODO: Eventually re-implement this feature, but only
 					// after the Terrain-image thing is finished.
 
