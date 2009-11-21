@@ -175,6 +175,38 @@ public class CharacterChooser extends JFrame{
 				w = new Weapon("Heal", WeaponType.STAFF, 7, 0, 0, 0, 30, 1);
 			break;
 			
+			case RCRT:
+				w = new Weapon("Slim Lance", WeaponType.LANCE, 4, 85, 5, 4, 30, 1);
+			break;
+			
+			case CVLR:
+				w = new Weapon("Iron Lance", WeaponType.LANCE, 7, 80, 0, 8, 45, 1);
+			break;
+				
+			case BRSKR:
+				w = new Weapon("Killer Axe", WeaponType.AXE, 11, 65, 30, 11, 20, 1);
+			break;
+			
+			case PLDN:
+				w = new Weapon("Silver Lance", WeaponType.LANCE, 14, 75, 0, 10, 20, 1);
+			break;
+			
+			case GNRL:
+				w = new Weapon("Steel Lance", WeaponType.LANCE, 10, 70, 0, 13, 30, 1);
+			break;
+			
+			case MCNRY:
+				w = new Weapon("Iron Blade", WeaponType.SWORD, 9, 70, 0, 12, 35, 1);
+			break;
+			
+			case PKNG:
+				w = new Weapon("Slim Lance", WeaponType.LANCE, 4, 85, 5, 4, 30, 1);
+			break;
+			
+			case JNYMN:
+				w = new Weapon("Iron Axe", WeaponType.AXE, 8, 75, 0, 10, 45, 1);
+			break;
+			
 			case KNG:
 				w = new Weapon("Iron Lance", WeaponType.LANCE, 7, 80, 0, 8, 45, 1);
 			break;

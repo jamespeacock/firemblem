@@ -2,14 +2,21 @@ Brian Clanton
 10/24/09
 Base stat numbers are in this order:
 lvl, hp, str, skl, spd, luc, def, res, con, mov
-MYR, LORD, KNG, FGT, ARCH, MAGE, CLR
 
 source: http://www.feshrine.net/fe6/basestats.html
 start
-1	19	6	9	10	3	3	1	5	5
-1	18	 5	 5	7	7	5	0	6	5
-1	20	7	4	3	4	11	0	14	4
-1	28	8	3	5	4	3	0	13	5
-1	18	4	4	5	2	4	0	7	5
-1	16	5	5	4	4	2	7	4	5
-1	16	1	6	8	8	0	6	4	5
+MYR		Myrmidon		1	19	6	9	10	3	3	1	5	5
+LORD	Lord			1	18	5	5	7	7	5	0	6	5
+KNG		Knight			1	20	7	4	3	4	11	0	14	4
+FGT		Fighter			1	28	8	3	5	4	3	0	13	5
+ARCH	Archer			1	18	4	4	5	2	4	0	7	5
+MAGE	Mage			1	16	5	5	4	4	2	7	4	5
+CLR		Cleric			1	16	1	6	8	8	0	6	4	5
+RCRT 	Recruit			1	16	4	3	4	6	2	3	6	4
+CVLR	Cavalier		1	21	8	5	8	2	6	1	9	7
+PLDN	Paladin			1	30	14	13	12	13	11	8	11	8
+BRSKR	Berserker		1	43	16	11	9	4	11	6	16	6
+GNRL	General			1	40	15	10	7	8	15	11	11	5
+MCNRY	Mercenary		1	20	7	10	7	1	5	0	11	5
+PKNG	Pegasus Knight	1	16	7	7	10	7	7	7	5	7
+JNYMN	Journeyman		1	15	5	2	3	8	3	0	8	4

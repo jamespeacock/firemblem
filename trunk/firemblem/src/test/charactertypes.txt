@@ -5,3 +5,11 @@ Cleric
 Mage
 Archer
 Fighter
+Recruit
+Cavalier
+Paladin
+Berserker
+General
+Mercenary
+Pegasus Knight
+Journeyman
