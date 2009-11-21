@@ -9,6 +9,7 @@ package test;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -36,6 +37,7 @@ import game.Map;
 
 public class AttackPhaseTester extends JFrame{
 
+	private static CharacterChooser a;
 	private JPanel pane, stats, b;
 	private JLabel img1, img2, name1 = new JLabel(),
 		name2 = new JLabel(), weapon1 = new JLabel(), weapon2 = new JLabel(), 
@@ -111,15 +113,23 @@ public class AttackPhaseTester extends JFrame{
 	class CharacterSettingsListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			dispose();
-			CharacterChooser c = new CharacterChooser();
+			try {
+				CharacterChooser c = new CharacterChooser();
+			} catch (ClassNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 	}//end CharacterSetttingsListener
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		ParseMethods.initializeCharacterSearchMap();
 		ParseMethods.initializeTerrainSearchMap();
 		JFrame.setDefaultLookAndFeelDecorated(true);
-		CharacterChooser a = new CharacterChooser();
+		a = new CharacterChooser();
 	}//end main
 	
 	public AttackPhaseTester(Character c1, Character c2, TerrainType t1, TerrainType t2){
@@ -205,10 +215,10 @@ public class AttackPhaseTester extends JFrame{
 	private void initialize(){
 		start.setEnabled(true);
 		start.setText(one.name + "'s Attack");
-		one = new Character(one.type, 0, 0);
-		two = new Character(two.type, 0, 1);
-		one.activeWeapon = CharacterChooser.getActiveWeapon(one);
-		two.activeWeapon = CharacterChooser.getActiveWeapon(two);
+		one = new Character(one.type, one.activeWeapon, 0, 0);
+		two = new Character(two.type, two.activeWeapon, 0, 1);
+		//one.activeWeapon = a.getActiveWeapon(a.w1);
+		//two.activeWeapon = a.getActiveWeapon(a.w2);
 		weapon1.setText(one.activeWeapon.name);
 		weapon2.setText(two.activeWeapon.name);
 		max1 = one.hp;
