@@ -55,6 +55,10 @@ public class AttackPhaseTester extends JFrame{
 					a += one.name + " gets a Double Attack\n";						
 					a += one.attack(two);
 				}//end if
+				else if(two.doubleAttack(one) && one.status != StatType.DEAD && two.status != StatType.DEAD){
+					a += two.name + " gets a Double Attack\n";
+					a += two.attack(one);
+				}//end if
 				start.setText(two.name + "'s Attack");
 			}//end if
 			else{
@@ -63,6 +67,10 @@ public class AttackPhaseTester extends JFrame{
 				if(two.doubleAttack(one) && one.status != StatType.DEAD && two.status != StatType.DEAD){
 					a += two.name + " gets a Double Attack\n";
 					a += two.attack(one);
+				}//end if
+				else if(one.doubleAttack(two) && one.status != StatType.DEAD && two.status != StatType.DEAD){
+					a += one.name + " gets a Double Attack\n";						
+					a += one.attack(two);
 				}//end if
 				start.setText(one.name + "'s Attack");
 			}//end else
@@ -111,8 +119,6 @@ public class AttackPhaseTester extends JFrame{
 		pane.setLayout(new BoxLayout(pane, BoxLayout.PAGE_AXIS));
 		stats = new JPanel(new GridLayout(5, 2));
 		b = new JPanel(new FlowLayout());
-		
-		
 		
 		one = c1;
 		two = c2;

@@ -7,9 +7,12 @@ public class ParseMethods {
 	public static TreeMap<String, TerrainType> terrainSearchMap = new TreeMap<String, TerrainType> ();
 	
 	public static void initializeCharacterSearchMap(){
-		String [] names = {"Myrmidon", "Lord", "Knight", "Cleric", "Mage", "Archer", "Fighter"};
+		String [] names = {"Myrmidon", "Lord", "Knight", "Cleric", "Mage", "Archer", "Fighter", 
+				"Recruit", "Cavalier", "Paladin", "Berserker", "General", "Mercenary", "Pegasus Knight", 
+				"Journeyman"};
 		CharacterType[] types = {CharacterType.MYR, CharacterType.LORD, CharacterType.KNG, CharacterType.CLR,
-				CharacterType.MAGE, CharacterType.ARCH, CharacterType.FGT};
+				CharacterType.MAGE, CharacterType.ARCH, CharacterType.FGT, CharacterType.RCRT, CharacterType.CVLR, CharacterType.PLDN, CharacterType.BRSKR, 
+				CharacterType.GNRL, CharacterType.MCNRY, CharacterType.PKNG, CharacterType.JNYMN};
 		
 		for(int i = 0; i < names.length; i++)
 			characterSearchMap.put(names[i], types[i]);
