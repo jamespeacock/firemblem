@@ -19,11 +19,13 @@ import data.CharacterType;
 import data.StatType;
 import data.WeaponType;
 
+
 /**
  * 
  * @author Brian Clanton
  *
  */
+
 public class Character {
 	public String name;
 	public Weapon [] inventory = new  Weapon [5];
@@ -53,7 +55,7 @@ public class Character {
 		type = null;
 	}//end default constructor
 
-	public Character(CharacterType e, int x, int y) {
+	public Character(CharacterType e, Weapon w, int x, int y) {
 		try{
 			Scanner console = new Scanner(new FileReader("src/data/basestats.txt"));
 			String s = "";
@@ -85,6 +87,7 @@ public class Character {
 			s = s.substring(s.indexOf("\t")).trim();
 			mov = Integer.parseInt(s.substring(0).trim());
 			exp = 0;
+			activeWeapon = w;
 		}
 		catch (FileNotFoundException q){
 		}
@@ -117,7 +120,10 @@ public class Character {
 	 * @return attack speed
 	 */
 	public int getAttackSpeed(){
-		return spd + con - activeWeapon.weight;
+		if(spd + con - activeWeapon.weight > 0)
+			return spd + con - activeWeapon.weight;
+		else
+			return 1;
 	}//end getAttackSpeed
 
 	/**
@@ -147,8 +153,12 @@ public class Character {
 	 * @return hit rate
 	 */
 	public int getHitRate(Character target){
-		return (int) ((int) 2 * skl + .5 * luc + activeWeapon.hit + getTriangleHitBoost(target) 
-				/* + bonuses*/ - target.getEvade());
+		if((int) ((int) 2 * skl + .5 * luc + activeWeapon.hit + getTriangleHitBoost(target) 
+				/* + bonuses*/ - target.getEvade()) > 0)
+			return (int) ((int) 2 * skl + .5 * luc + activeWeapon.hit + getTriangleHitBoost(target) 
+					/* + bonuses*/ - target.getEvade());
+		else
+			return 1;
 	}//end getHitRate
 
 	/**
@@ -180,10 +190,16 @@ public class Character {
 	 */
 	public int getDamage(Character target){
 		if(isNotMagic())
-			return str + activeWeapon.attack + getTriangleAttackBoost(target) 
-			/* + bonuses*/ - target.getEffectiveDefense();
+			if(str + activeWeapon.attack + getTriangleAttackBoost(target) 
+					/* + bonuses*/ - target.getEffectiveDefense()>0)
+				return str + activeWeapon.attack + getTriangleAttackBoost(target) 
+				/* + bonuses*/ - target.getEffectiveDefense();
+			else
+				return 0;
 		else
-			return str + activeWeapon.attack /* + bonuses*/ - target.getEffectiveResistance();
+			if(str + activeWeapon.attack /* + bonuses*/ - target.getEffectiveResistance()>0)
+				return str + activeWeapon.attack /* + bonuses*/ - target.getEffectiveResistance();
+			else return 0;
 	}//end getDamage
 
 	/**
@@ -220,7 +236,10 @@ public class Character {
 	 * @return critical rate
 	 */
 	public int getCriticalRate(Character target){
-		return (int) .5 * skl + activeWeapon.crit /* + bonuses*/ - target.getCriticalEvade();
+		if((int) .5 * skl + activeWeapon.crit /* + bonuses*/ - target.getCriticalEvade()>0)
+			return (int) .5 * skl + activeWeapon.crit /* + bonuses*/ - target.getCriticalEvade();
+		else
+			return 0;
 	}//end getCriticalRate
 
 	public int getStaffEvade(Point t){
@@ -228,7 +247,10 @@ public class Character {
 	}//end getStaffEvade
 
 	public int getStaffHitRate(Character target){
-		return 30 + str * 5 + skl /* + bonuses*/ - target.getStaffEvade(target.position);
+		if(30 + str * 5 + skl /* + bonuses*/ - target.getStaffEvade(target.position)>0)
+			return 30 + str * 5 + skl /* + bonuses*/ - target.getStaffEvade(target.position);
+		else
+			return 0;
 	}//end getStaffHitRate
 
 	public String attack(Character target){

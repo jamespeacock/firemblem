@@ -1,42 +1,48 @@
 package test;
 
-import java.util.*;
-import java.io.*;
+import game.Weapon;
 
-import data.CharacterType;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Scanner;
+
+import data.WeaponSerializer;
 
 public class Randomness
 {
 	public static void main(String []args)
 	{
+		HashMap<String, Weapon> weaponsMap;
+		WeaponSerializer ws = new WeaponSerializer();
+		weaponsMap = new HashMap<String, Weapon>();
+		String s = ""; String ss = "";
 		try{
-			Scanner console = new Scanner(new FileReader("src/data/basestats.txt"));
-			CharacterType e = CharacterType.MAGE;
-			String s = "";
-			while(!console.nextLine().contains("start"))
-				s = console.nextLine();
-			System.out.println(s);
-			while(!s.contains(e.name()) && console.hasNext()){
-				s = console.nextLine();
-			}
-			s = s.substring(s.indexOf("\t")).trim();
-			System.out.println(s);
-			console.next();
-			String name = console.next();
-			System.out.println(name);
-			int lvl = console.nextInt();
-			int hp = console.nextInt();
-			int str = console.nextInt();
-			int skl = console.nextInt();
-			int spd = console.nextInt();
-			int luc = console.nextInt();
-			int def = console.nextInt();
-			int res = console.nextInt();
-			int con = console.nextInt();
-			int mov = console.nextInt();
+			Scanner reader = new Scanner(new FileReader("src/data/weapons.txt"));
+			s = reader.nextLine();
 		}
-		catch (FileNotFoundException e){
-			System.out.println("not found");
+		catch (FileNotFoundException e) {
+			System.out.println("asdasd");
+		}
+		try{
+			Scanner console = new Scanner(new FileReader("../data/weapons.txt"));
+			while(console.hasNext()){
+				s = console.nextLine();
+				ss = s.substring(0, s.indexOf(","));
+				weaponsMap.put(s.substring(0,s.indexOf(",")), ws.get(ss));
+			}
+		}
+		catch (FileNotFoundException e)
+		{
+			System.out.println(s);
+			System.out.println("hee");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("hey");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println("hwewe");
 		}
 	}
 }

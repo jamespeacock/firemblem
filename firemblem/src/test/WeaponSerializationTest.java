@@ -15,13 +15,13 @@ public class WeaponSerializationTest {
 		WeaponSerializer ws = new WeaponSerializer();
 		try {
 			ws.load("src/data/weapons.txt");
-			ws.write("src/data/weapons/");
-			ws.read("src/data/weapons/");
+			ws.write();
+			ws.read();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException e){
 			e.printStackTrace();
 		}
 	}
