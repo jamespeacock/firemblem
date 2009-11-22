@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import test.AttackPhaseTester;
 
 import data.CharacterType;
+import data.ParseMethods;
 import data.StatType;
 import data.WeaponType;
 
@@ -30,12 +31,15 @@ public class Character {
 	public String name;
 	public ItemInterface [] inventory = new  ItemInterface[5];
 	public int hp, str, def, luc, lvl, exp, mov, skl, spd, res, con;
+	public int currHp;
 	public int index = 0;
 	public StatType status;
 	public Point position;
 	public Weapon activeWeapon = null;
 	public ImageIcon classImage;
 	public CharacterType type;
+	public int[] growthRates;
+	public int classPower = 1, classBonusA, classBonusB;
 
 	public Character(){
 		name = "";
@@ -70,6 +74,7 @@ public class Character {
 			lvl = Integer.parseInt(s.substring(0, s.indexOf("\t")));
 			s = s.substring(s.indexOf("\t")).trim();
 			hp = Integer.parseInt(s.substring(0, s.indexOf("\t")));
+			currHp = hp;
 			s = s.substring(s.indexOf("\t")).trim();
 			str = Integer.parseInt(s.substring(0, s.indexOf("\t")));
 			s = s.substring(s.indexOf("\t")).trim();
@@ -274,16 +279,34 @@ public class Character {
 					actions += "Critical hit\n";
 				}//end if
 				damage = getDamage(target) * critBonus;
-				target.hp -= damage;
+				target.currHp -= damage;
 				actions += name + " dealt " + damage + " damage to " + target.name + ".\n";
-				if(target.hp <= 0){
+				if(target.currHp <= 0){
 					actions += target.name + " has been killed.\n";
 					target.status = StatType.DEAD;
+
+					exp = exp + (31 + (target.lvl + target.classBonusA) - (lvl + classBonusA))/classPower;
+
+					if(exp + ((target.lvl * target.classPower) + target.classBonusB) - (((lvl * classPower) + classBonusB))<=0)
+						exp = exp + ((target.lvl * target.classPower) + target.classBonusB) - (((lvl * classPower) + classBonusB)/2);
+					else
+						exp = exp + ((target.lvl * target.classPower) + target.classBonusB) - ((lvl * classPower) + classBonusB);
+					if(exp >= 100){
+						exp = exp-100;
+						levelUp();
+					}
+
 				}//end if
 				activeWeapon.durability -= 1;
 			}//end if
-			else
+			else{
 				actions += name + " attacks " + target.name + " and misses.\n";
+				exp = exp + (31 + (target.lvl + target.classBonusA) - (lvl + classBonusA))/classPower;
+				if(exp >= 100){
+					exp = exp-100;
+					levelUp();
+				}
+			}
 		}//end if
 		if(activeWeapon.type == WeaponType.STAFF)
 			actions += "Staves cannot be used to attack.\n";
@@ -293,7 +316,7 @@ public class Character {
 	public int getTriangleHitBoost(Character target){
 		if(isNotMagic() && target.isNotMagic()){
 			if(activeWeapon.type == WeaponType.SWORD && target.activeWeapon.type == WeaponType.AXE ||
-					activeWeapon.type == WeaponType.SWORD && target.activeWeapon.type == WeaponType.LANCE ||
+					activeWeapon.type == WeaponType.AXE && target.activeWeapon.type == WeaponType.LANCE ||
 					activeWeapon.type == WeaponType.LANCE && target.activeWeapon.type == WeaponType.SWORD)
 				return 10;
 			else if(activeWeapon.type == WeaponType.AXE && target.activeWeapon.type == WeaponType.SWORD ||
@@ -338,6 +361,123 @@ public class Character {
 		return 0;
 	}//end getTriangleAttackBoost
 
+	public void getGrowthRates(){
+		try{
+			Scanner console = new Scanner(new FileReader("src/data/leveluprates.txt"));
+			String s = console.nextLine();
+			while(!s.contains(type.name()))
+				s = console.nextLine();
+			s = console.next();
+			growthRates = new int[7];
+			for(int i = 0; i < growthRates.length; i++)
+				growthRates[i] = Integer.parseInt(console.next().trim()) + (int)(Math.random()*10)-5;
+		}
+		catch (FileNotFoundException e){
+		}
+	}
+
+	public void levelUp(){
+		getGrowthRates();
+		lvl++;
+		if((int)(Math.random() * 101) <= growthRates[0])
+			hp++;			
+		if((int)(Math.random() * 101) <= growthRates[1])
+			str++;
+		if((int)(Math.random() * 101) <= growthRates[2])
+			skl++;
+		if((int)(Math.random() * 101) <= growthRates[3])
+			spd++;
+		if((int)(Math.random() * 101) <= growthRates[4])
+			luc++;
+		if((int)(Math.random() * 101) <= growthRates[5])
+			def++;
+		if((int)(Math.random() * 101) <= growthRates[6])
+			res++;
+	}
+
+	public void setClassInfo(){
+		switch(type){
+		case JNYMN:
+		case RCRT:
+		case PUPIL:
+			classPower = 1;
+			classBonusA = 0;
+			classBonusB = 0;
+			break;
+
+		case CLR:
+		case TRBDR:
+		case THF:
+			classPower = 1;
+			classBonusA = 0;
+			classBonusB = 0;
+			break;
+
+		case MYR:
+		case MCNRY:
+		case LORD:
+		case PRT:
+		case FGT:
+		case ARCH:
+		case MAGE:		
+		case PKNG:
+		case KNG:
+		case CVLR:
+			classPower = 3;
+			classBonusA = 20;
+			classBonusB = 0;
+			break;
+
+		case GNRL:
+		case HERO:
+		case BRSKR:
+		case FKNG:
+		case PLDN:
+			classPower = 3;
+			classBonusA = 20;
+			classBonusB = 60;
+			break;
+		}
+	}
+
+	public static Weapon getDefaultWeapon(CharacterType t)
+	{
+		switch (t){
+		case GNRL:
+		case RCRT:
+		case PKNG:
+		case KNG:
+		case FKNG:
+		case CVLR:
+		case PLDN:
+			return new Weapon("Iron Lance");
+
+		case HERO:
+		case THF:
+		case MYR:
+		case MCNRY:
+		case LORD:
+			return new Weapon("Iron Sword");
+
+		case PRT:
+		case FGT:
+		case JNYMN:
+		case BRSKR:
+			return new Weapon("Iron Axe");
+			
+		case ARCH:
+			return new Weapon("Iron Bow");
+
+		case PUPIL:
+		case MAGE:
+			return new Weapon("Fire");
+
+		case TRBDR:
+		case CLR:
+			return new Weapon("Heal");
+		}
+		return new Weapon("Dummy");
+	}
 	private boolean isInRange(Character target){
 		return activeWeapon.range >= (int) position.distance(target.position) ;
 	}//end isInRange

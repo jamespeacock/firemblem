@@ -131,7 +131,7 @@ public class CharacterChooser extends JFrame{
 			while(console.hasNext()){
 				s = console.nextLine();
 				ss = s.substring(0, s.indexOf(","));
-				Weapon w = findWeapon(ss);
+				Weapon w = new Weapon(ss);
 				weaponsMap.put(s.substring(0,s.indexOf(",")), w);
 			}
 		}
@@ -165,6 +165,22 @@ public class CharacterChooser extends JFrame{
 				}
 				break;
 
+			case HERO:
+				while(!s.contains(", Sword,"))
+					s = console.nextLine();
+				while(s.contains(", Sword,")){
+					weaponsList.add(s.substring(0, s.indexOf(",")).trim());
+					s = console.nextLine();
+				}
+				while(!s.contains(", Axe,"))
+					s = console.nextLine();
+				while(s.contains(", Axe,")){
+					weaponsList.add(s.substring(0, s.indexOf(",")).trim());
+					s = console.nextLine();
+				}
+				break;
+				
+			case THF:
 			case MYR:
 			case MCNRY:
 			case LORD:
@@ -176,6 +192,7 @@ public class CharacterChooser extends JFrame{
 				}
 				break;
 
+			case PRT:
 			case FGT:
 			case JNYMN:
 			case BRSKR:
@@ -196,6 +213,7 @@ public class CharacterChooser extends JFrame{
 				}
 				break;
 
+			case PUPIL:
 			case MAGE:
 				while(!s.contains(", Anima,"))
 					s = console.nextLine();
@@ -205,6 +223,7 @@ public class CharacterChooser extends JFrame{
 				}
 				break;
 
+			case TRBDR:
 			case CLR:
 				while(!s.contains(", Staff,"))
 					s = console.nextLine();
@@ -225,19 +244,8 @@ public class CharacterChooser extends JFrame{
 				}
 				break;
 
+			case FKNG:
 			case CVLR:
-				while(!s.contains(", Sword,"))
-					s = console.nextLine();
-				while(s.contains(", Sword,")){
-					weaponsList.add(s.substring(0, s.indexOf(",")).trim());
-					s = console.nextLine();
-				}
-				while(s.contains(", Lance,")){
-					weaponsList.add(s.substring(0, s.indexOf(",")).trim());
-					s = console.nextLine();
-				}
-				break;
-
 			case PLDN:
 				while(!s.contains(", Sword,"))
 					s = console.nextLine();
@@ -250,7 +258,6 @@ public class CharacterChooser extends JFrame{
 					s = console.nextLine();
 				}
 				break;
-
 			}
 			Object[] ar = weaponsList.toArray();
 			String[] ar2 = new String[ar.length];
@@ -328,115 +335,8 @@ public class CharacterChooser extends JFrame{
 	}//end incorporateChanges
 
 	public static Weapon getActiveWeapon(String s){
-		/*
-		Weapon w = null;
-		switch(c.type){
-		case MYR:
-			w = new Weapon("Iron Sword", WeaponType.SWORD, 5, 90, 0, 5, 45, 1);
-			break;
-
-		case FGT:
-			w = new Weapon("Iron Axe", WeaponType.AXE, 8, 75, 0, 10, 45, 1);
-			break;
-
-		case LORD:
-			w = new Weapon("Rapier", WeaponType.SWORD, 7, 95, 10, 5, 40, 1);
-			break;
-
-		case ARCH:
-			w = new Weapon("Iron Bow", WeaponType.BOW, 6, 85, 0, 5, 45, 2);
-			break;
-
-		case MAGE:
-			w = new Weapon("Fire", WeaponType.ANIMA, 5, 90, 0, 4, 40, 2);
-			break;
-
-		case CLR:
-			w = new Weapon("Heal", WeaponType.STAFF, 7, 0, 0, 0, 30, 1);
-			break;
-
-		case RCRT:
-			w = new Weapon("Slim Lance", WeaponType.LANCE, 4, 85, 5, 4, 30, 1);
-			break;
-
-		case CVLR:
-			w = new Weapon("Iron Lance", WeaponType.LANCE, 7, 80, 0, 8, 45, 1);
-			break;
-
-		case BRSKR:
-			w = new Weapon("Killer Axe", WeaponType.AXE, 11, 65, 30, 11, 20, 1);
-			break;
-
-		case PLDN:
-			w = new Weapon("Silver Lance", WeaponType.LANCE, 14, 75, 0, 10, 20, 1);
-			break;
-
-		case GNRL:
-			w = new Weapon("Steel Lance", WeaponType.LANCE, 10, 70, 0, 13, 30, 1);
-			break;
-
-		case MCNRY:
-			w = new Weapon("Iron Blade", WeaponType.SWORD, 9, 70, 0, 12, 35, 1);
-			break;
-
-		case PKNG:
-			w = new Weapon("Slim Lance", WeaponType.LANCE, 4, 85, 5, 4, 30, 1);
-			break;
-
-		case JNYMN:
-			w = new Weapon("Iron Axe", WeaponType.AXE, 8, 75, 0, 10, 45, 1);
-			break;
-
-		case KNG:
-			w = new Weapon("Iron Lance", WeaponType.LANCE, 7, 80, 0, 8, 45, 1);
-			break;
-		}//end switch
-		 */
 		return weaponsMap.get(s);
 	}//end getActiveWeapon
 
-	public Weapon findWeapon(String s){
-		try{
-			Scanner console = new Scanner(new FileReader("src/data/weapons.txt"));
-			String line = console.nextLine();
-			while(console.hasNext() && !line.contains(s+",")){
-				line = console.nextLine();
-			}
-			if(line.contains("Staff")){
-				String name = s;
-				line = line.substring(line.indexOf(",")+1).trim();
-				int attack = Integer.parseInt(line.substring(0, line.indexOf(",")));
-				line = line.substring(line.indexOf(",")+1).trim();
-				int durability = Integer.parseInt(line.substring(0, line.indexOf(",")));
-				line = line.substring(line.indexOf(",")+1).trim();
-				WeaponType type = ParseMethods.toWeaponType(line.substring(0,line.indexOf(",")));
-				line = line.substring(line.indexOf(",")+1).trim();
-				int range = Integer.parseInt(line.trim());
-				Weapon w = new Weapon(name, type, -1, -1, attack, -1, durability, range);
-				return w;
-			}
-			else{
-				String name = s;
-				line = line.substring(line.indexOf(",")+1).trim();
-				int attack = Integer.parseInt(line.substring(0, line.indexOf(",")));
-				line = line.substring(line.indexOf(",")+1).trim();
-				int hit = Integer.parseInt(line.substring(0, line.indexOf(",")));
-				line = line.substring(line.indexOf(",")+1).trim();
-				int crit = Integer.parseInt(line.substring(0, line.indexOf(",")));
-				line = line.substring(line.indexOf(",")+1).trim();
-				int weight = Integer.parseInt(line.substring(0, line.indexOf(",")));
-				line = line.substring(line.indexOf(",")+1).trim();
-				int durability = Integer.parseInt(line.substring(0, line.indexOf(",")));
-				line = line.substring(line.indexOf(",")+1).trim();
-				WeaponType type = ParseMethods.toWeaponType(line.substring(0,line.indexOf(",")));
-				line = line.substring(line.indexOf(",")+1).trim();
-				int range = Integer.parseInt(line.trim());
-				Weapon w = new Weapon(name, type, hit, crit, attack, weight, durability, range);
-				return w;
-			}
-		}
-		catch (FileNotFoundException e){
-			return null;
-		}
-	}
+	
 }

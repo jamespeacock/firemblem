@@ -1,7 +1,11 @@
 package game;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.Serializable;
+import java.util.Scanner;
 
+import data.ParseMethods;
 import data.WeaponType;
 
 public class Weapon implements Serializable, ItemInterface {
@@ -46,6 +50,53 @@ public class Weapon implements Serializable, ItemInterface {
 		this.range = range;
 	}
 	
+
+	public Weapon (String s){
+		try{
+			Scanner console = new Scanner(new FileReader("src/data/weapons.txt"));
+			String line = console.nextLine();
+			while(console.hasNext() && !line.contains(s+",")){
+				line = console.nextLine();
+			}
+			if(line.contains("Staff")){
+				name = s;
+				line = line.substring(line.indexOf(",")+1).trim();
+				attack = Integer.parseInt(line.substring(0, line.indexOf(",")));
+				line = line.substring(line.indexOf(",")+1).trim();
+				durability = Integer.parseInt(line.substring(0, line.indexOf(",")));
+				line = line.substring(line.indexOf(",")+1).trim();
+				type = ParseMethods.toWeaponType(line.substring(0,line.indexOf(",")));
+				line = line.substring(line.indexOf(",")+1).trim();
+				range = Integer.parseInt(line.trim());
+				hit = -1;
+				crit = -1;
+				weight = -1;
+			}
+			else{
+				name = s;
+				line = line.substring(line.indexOf(",")+1).trim();
+				attack = Integer.parseInt(line.substring(0, line.indexOf(",")));
+				line = line.substring(line.indexOf(",")+1).trim();
+				hit = Integer.parseInt(line.substring(0, line.indexOf(",")));
+				line = line.substring(line.indexOf(",")+1).trim();
+				crit = Integer.parseInt(line.substring(0, line.indexOf(",")));
+				line = line.substring(line.indexOf(",")+1).trim();
+				weight = Integer.parseInt(line.substring(0, line.indexOf(",")));
+				line = line.substring(line.indexOf(",")+1).trim();
+				durability = Integer.parseInt(line.substring(0, line.indexOf(",")));
+				line = line.substring(line.indexOf(",")+1).trim();
+				type = ParseMethods.toWeaponType(line.substring(0,line.indexOf(",")));
+				line = line.substring(line.indexOf(",")+1).trim();
+				range = Integer.parseInt(line.trim());
+			}
+		}
+		catch (FileNotFoundException e){
+			System.out.println("Error");
+			System.exit(0);
+		}
+	}
+
+
 
 	public static Weapon forgeWeapon(String name, WeaponType type, int hit,
 			int crit, int attack, int weight, int durability, int range) {

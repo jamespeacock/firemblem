@@ -10,10 +10,11 @@ public class ParseMethods {
 	public static void initializeCharacterSearchMap(){
 		String [] names = {"Myrmidon", "Lord", "Knight", "Cleric", "Mage", "Archer", "Fighter", 
 				"Recruit", "Cavalier", "Paladin", "Berserker", "General", "Mercenary", "Pegasus Knight", 
-				"Journeyman"};
+				"Journeyman", "Pupil", "Hero", "Troubador", "Pirate", "Falcoknight", "Thief"};
 		CharacterType[] types = {CharacterType.MYR, CharacterType.LORD, CharacterType.KNG, CharacterType.CLR,
 				CharacterType.MAGE, CharacterType.ARCH, CharacterType.FGT, CharacterType.RCRT, CharacterType.CVLR, CharacterType.PLDN, CharacterType.BRSKR, 
-				CharacterType.GNRL, CharacterType.MCNRY, CharacterType.PKNG, CharacterType.JNYMN};
+				CharacterType.GNRL, CharacterType.MCNRY, CharacterType.PKNG, CharacterType.JNYMN, CharacterType.PUPIL,
+				CharacterType.HERO, CharacterType.TRBDR, CharacterType.PRT, CharacterType.FKNG, CharacterType.THF};
 		
 		for(int i = 0; i < names.length; i++)
 			characterSearchMap.put(names[i], types[i]);
