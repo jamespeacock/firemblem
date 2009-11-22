@@ -239,8 +239,11 @@ public class AttackPhaseTester extends JFrame{
 		weapon2.setText(two.activeWeapon.name);
 		currHp2 = two.hp;
 		hp2.setText("" + currHp2 + " / " + two.hp);
+		stats.remove(img2);
 		two.classImage = new ImageIcon("images/" + two.name.toLowerCase() + ".gif");
 		img2 = new JLabel(two.classImage);
+		stats.add(img2, 3);
+		stats.validate();
 		name1.setText(one.name);
 		name2.setText(two.name);
 		ter1.setText(g.grid[one.position.x][one.position.y].name);
