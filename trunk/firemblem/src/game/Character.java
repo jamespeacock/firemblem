@@ -28,7 +28,7 @@ import data.WeaponType;
 
 public class Character {
 	public String name;
-	public Weapon [] inventory = new  Weapon [5];
+	public ItemInterface [] inventory = new  ItemInterface[5];
 	public int hp, str, def, luc, lvl, exp, mov, skl, spd, res, con;
 	public int index = 0;
 	public StatType status;
@@ -110,10 +110,10 @@ public class Character {
 	 * 
 	 * @param a
 	 */
-	public void addWeapon(Weapon a){
+	public void add(ItemInterface a){
 		inventory[index] = a;
 		index++;
-	}//end addWeapon
+	}//end add
 
 	/**
 	 * Gets attack speed.
@@ -141,8 +141,9 @@ public class Character {
 	 * Sets a Character's equipped weapon.
 	 * @param a
 	 */
+	// TODO: Add something to check that item is a weapon.
 	public void setActiveWeapon(int a){
-		activeWeapon = inventory[a];
+		activeWeapon = (Weapon) inventory[a];
 	}//end setActiveWeapon
 
 	/**
@@ -242,6 +243,8 @@ public class Character {
 			return 0;
 	}//end getCriticalRate
 
+	//TODO: Add some comments!!!
+	
 	public int getStaffEvade(Point t){
 		return res * 5 + (int) (position.distance(t)) * 2 /* + bonuses*/;
 	}//end getStaffEvade
