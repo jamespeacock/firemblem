@@ -20,6 +20,11 @@ public class Player {
 		units = new ArrayList<Character> ();
 		name = n;
 		unitNum = 0;
-	}//end constructor	
+	}//end constructor
+	
+	public void add(Character a){
+		units.add(a);
+		unitNum++;
+	}//end add
 	
 }

@@ -11,6 +11,7 @@ public class Item implements Serializable, ItemInterface {
 	 */
 	private static final long serialVersionUID = -7887207427345117139L;
 	
+	// TODO: Kevin needs to explain these variables.
 	private String name;
 	private int durability;
 	private ItemType type;

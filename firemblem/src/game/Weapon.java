@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import data.WeaponType;
 
-public class Weapon implements Serializable {
+public class Weapon implements Serializable, ItemInterface {
 
 	/**
 	 * 
@@ -69,5 +69,14 @@ public class Weapon implements Serializable {
 		s += "\nDurability: " + durability;
 		s += "\nRange: " + range;
 		return s;
+	}
+	
+	public int use(){
+		durability--;
+		//this if will be changed once the appropriate enum is added.
+		if(durability > 0)
+			return 1;
+		else
+			return 0;
 	}
 }
