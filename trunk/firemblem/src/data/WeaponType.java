@@ -10,6 +10,6 @@ public enum WeaponType {
 	LIGHT,
 	DARK,
 	MONSTER,
-	STAFF
-	
+	STAFF,
+	DUMMY
 }

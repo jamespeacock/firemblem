@@ -13,3 +13,9 @@ General
 Mercenary
 Pegasus Knight
 Journeyman
+Pupil
+Hero
+Troubador
+Pirate
+Falcoknight
+Thief

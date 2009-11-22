@@ -12,11 +12,17 @@ FGT		Fighter			1	28	8	3	5	4	3	0	13	5
 ARCH	Archer			1	18	4	4	5	2	4	0	7	5
 MAGE	Mage			1	16	5	5	4	4	2	7	4	5
 CLR		Cleric			1	16	1	6	8	8	0	6	4	5
+TRBDR	Troubador		1	17	5	5	9	10	5	7	5	6
 RCRT 	Recruit			1	16	4	3	4	6	2	3	6	4
 CVLR	Cavalier		1	21	8	5	8	2	6	1	9	7
 PLDN	Paladin			1	30	14	13	12	13	11	8	11	8
 BRSKR	Berserker		1	43	16	11	9	4	11	6	16	6
 GNRL	General			1	40	15	10	7	8	15	11	11	5
 MCNRY	Mercenary		1	20	7	10	7	1	5	0	11	5
-PKNG	Pegasus Knight	1	16	7	7	10	7	7	7	5	7
+PKNG	Pegasus Knight	1	17	5	7	12	4	6	5	5	7
 JNYMN	Journeyman		1	15	5	2	3	8	3	0	8	4
+PUPIL	Pupil			1	15	3	2	5	5	0	3	5	4
+HERO	Hero			1	37	13	9	8	11	11	10	13	6
+PRT		Pirate			1	21	9	5	6	10	5	2	10	5
+FKNG	Falcoknight		1	27	12	13	15	12	10	12	7	8
+THF		Thief			1	17	4	4	11	8	3	1	6	6
