@@ -246,8 +246,8 @@ public class AttackPhaseTester extends JFrame{
 		stats.validate();
 		name1.setText(one.name);
 		name2.setText(two.name);
-		ter1.setText(g.grid[one.position.x][one.position.y].name);
-		ter2.setText(g.grid[two.position.x][two.position.y].name);
+		ter1.setText(g.grid[one.position.x][one.position.y].type.name);
+		ter2.setText(g.grid[two.position.x][two.position.y].type.name);
 		characterOneTurn = true;
 		log.setText("");
 	}
@@ -265,8 +265,8 @@ public class AttackPhaseTester extends JFrame{
 		hp2.setText("" + currHp2 + " / " + two.hp);
 		name1.setText(one.name);
 		name2.setText(two.name);
-		ter1.setText(g.grid[one.position.x][one.position.y].name);
-		ter2.setText(g.grid[two.position.x][two.position.y].name);
+		ter1.setText(g.grid[one.position.x][one.position.y].type.name);
+		ter2.setText(g.grid[two.position.x][two.position.y].type.name);
 		log.setText("");
 	}//end initialize	
 
