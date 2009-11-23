@@ -16,6 +16,7 @@ public class Weapon implements Serializable, ItemInterface {
 	private static final long serialVersionUID = -8648673134412314167L;
 
 	//Brian Clanton changed hit and crit from floats to ints to match his pattern for percentages.
+	// TODO: make a max range and min range for weapons.
 	public String name;
 	public WeaponType type;
 	public int hit;
