@@ -12,20 +12,12 @@ import data.TerrainType;
  */
 public class Terrain {
 
-    /**
-     * The percent increase in evasion.
-     */
-    public int evadeBoost;
-    public int defenseBoost;
     public int moveEffect;
     public String name;
     public boolean occupied;
     public TerrainType type;
 
     public Terrain() {
-	evadeBoost = 0;
-	defenseBoost = 0;
-	moveEffect = 0;
 	name = "?";
 	occupied = false;
 	type = TerrainType.TILE;
@@ -46,8 +38,8 @@ public class Terrain {
 
     @Override
     public String toString() {
-	return "" + name + "\ndefenseBoost=" + defenseBoost + "\nevadeBoost="
-		+ evadeBoost + "\nmoveEffect=" + moveEffect + "\noccupied="
+	return "" + name + "\ndefenseBoost=" + type.defenseBoost + "\nevadeBoost="
+		+ type.evadeBoost + "\nmoveEffect=" + moveEffect + "\noccupied="
 		+ occupied;
     }// end toString
 
@@ -59,7 +51,7 @@ public class Terrain {
      * @return the modified base stat
      */
     public int getEvadeBonus(int baseStat) {
-	return (int) Math.floor(baseStat + evadeBoost / 100 * baseStat);
+	return (int) Math.floor(baseStat + type.evadeBoost / 100 * baseStat);
     }// end getEvadeBonus
 
     /**
@@ -70,7 +62,7 @@ public class Terrain {
      * @return the modified base stat
      */
     public int getDefenseBonus(int baseStat) {
-	return baseStat + defenseBoost;
+	return baseStat + type.defenseBoost;
     }// end getDefenseBonus
 
     // TODO: Write getMoveDecrease
