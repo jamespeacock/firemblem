@@ -13,12 +13,10 @@ import data.TerrainType;
 public class Terrain {
 
     public int moveEffect;
-    public String name;
     public boolean occupied;
     public TerrainType type;
 
     public Terrain() {
-	name = "?";
 	occupied = false;
 	type = TerrainType.TILE;
     }// end default constructor
@@ -38,7 +36,7 @@ public class Terrain {
 
     @Override
     public String toString() {
-	return "" + name + "\ndefenseBoost=" + type.defenseBoost + "\nevadeBoost="
+	return "" + type.name + "\ndefenseBoost=" + type.defenseBoost + "\nevadeBoost="
 		+ type.evadeBoost + "\nmoveEffect=" + moveEffect + "\noccupied="
 		+ occupied;
     }// end toString

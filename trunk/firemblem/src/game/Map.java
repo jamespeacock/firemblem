@@ -36,7 +36,7 @@ public class Map {
 	public void print(){
 		for(int i = 0; i < grid.length; i++){
 			for(int j = 0; j < grid[i].length; j++)
-				System.out.print(grid[i][j].name + " ");
+				System.out.print(grid[i][j].type.name + " ");
 			System.out.println();
 		}//end for
 	}//end print
