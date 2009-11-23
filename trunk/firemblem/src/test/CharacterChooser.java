@@ -42,6 +42,7 @@ public class CharacterChooser extends JFrame{
 	private static HashMap<String, Weapon> weaponsMap;
 	public String w1, w2;
 
+	// TODO: Add some comments, Cy.
 	public CharacterChooser() throws ClassNotFoundException, IOException{
 		super("Character Chooser - Brian Clanton 11/6/09");
 		pane = new JPanel();
