@@ -4,8 +4,6 @@ import data.TerrainType;
 
 //10/21/09
 
-// TODO: Add HP effects
-
 /**
  * @author Brian Clanton
  * @author Xiagu
@@ -17,8 +15,9 @@ public class Terrain {
     public TerrainType type;
 
     public Terrain() {
-	occupied = false;
-	type = TerrainType.TILE;
+		moveEffect = 0;
+		occupied = false;
+		type = TerrainType.TILE;
     }// end default constructor
 
     /**
@@ -29,9 +28,9 @@ public class Terrain {
      *            the TerrainType of the new Terrain
      */
     public Terrain(TerrainType t) {
-	type = t;
-	occupied = false;
-	moveEffect = 0;
+		type = t;
+		occupied = false;
+		moveEffect = 0;
     }// end constructor
 
     @Override

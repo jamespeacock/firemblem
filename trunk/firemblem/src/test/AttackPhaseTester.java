@@ -270,6 +270,7 @@ public class AttackPhaseTester extends JFrame{
 		log.setText("");
 	}//end initialize	
 
+	// TODO: comments please
 	public CharacterType getCharacterType(int t){
 		switch(t){
 		case 1: 
