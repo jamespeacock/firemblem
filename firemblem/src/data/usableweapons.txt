@@ -1,0 +1,10 @@
+Sword: General, Hero, Theif, Myrmidon, Mercenary, Lord, Cavalier, Falcoknight, Paladin
+Lance: General, Recruit, Pegasus Knight, Knight, Cavalier, Falcoknight, Paladin
+Axe: General, Hero, Pirate, Fighter, Journeyman, Beserker
+Bow: Archer, 
+Anima: Pupil, Mage
+Light:
+Dark:
+Monster:
+Staff: Troubador, Cleric
+Dummy: all
