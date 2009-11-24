@@ -33,4 +33,8 @@ public enum TerrainType {
 	this.defenseBoost = defenseBoost;
 	this.name = name;
     }
+    
+    public String toString(){
+    	return name;
+    }
 }
