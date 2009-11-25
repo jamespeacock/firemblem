@@ -2,7 +2,7 @@
 
 = Introduction =
 
-A remake of the popular Fire Emblem game [The Sacred Stones] based on the version released in the United States. The remake is built to be open-sourced and is currently under development. It is being constructed entirely from scratch, save for the images and tiles used, by Pi-Face, turnip, Cycotic, Stubby, and others not yet listed at this time.
+A remake of the popular Fire Emblem game The Sacred Stones based on the version released in the United States. The remake is built to be open-sourced and is currently under development. It is being constructed entirely from scratch, save for the images and tiles used, by Pi-Face, turnip, Cycotic, Stubby, and others not yet listed at this time.
 
 = Details =
 
