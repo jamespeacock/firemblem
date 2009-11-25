@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -148,6 +149,14 @@ public class CharacterChooser extends JFrame{
 			ArrayList<String> weaponsList = new ArrayList<String>();
 			String s = console.nextLine();
 
+			/*
+			HashSet<String> set = ParseMethods.toCharacterType(characterNames[n]).usableWeapons;
+			while(console.hasNext()){
+				s = console.nextLine();
+				if()
+			}
+			*/
+			
 			switch (ParseMethods.toCharacterType(characterNames[n])){
 			case GNRL:
 				while(!s.contains(", Sword,"))

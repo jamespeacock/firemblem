@@ -17,7 +17,7 @@ public enum CharacterType {
 	PUPIL("Pupil"), HERO("Hero"), TRBDR("Troubador"), PRT("Pirate"), FKNG("Falcoknight"),
 	THF("Theif");
 	
-	public HashSet<WeaponType> usableWeapons;
+	public HashSet<String> usableWeapons;
 	public String name;
 	
 	static String [] textFile = new String [10];
@@ -26,13 +26,13 @@ public enum CharacterType {
 	private CharacterType(String a){
 		ParseMethods.initializeWeaponSearchMap();
 		name = a;
-		usableWeapons = new HashSet<WeaponType> ();
+		usableWeapons = new HashSet<String> ();
 		String [] f = read();
 		String line;
 		for(int i = 0; i < f.length; i++){
 			line = f[i];
 			if(line.contains(name) || line.contains("all"))
-				usableWeapons.add(ParseMethods.toWeaponType(line.substring(0, line.indexOf(':'))));
+				usableWeapons.add(line.substring(0, line.indexOf(':')));
 		}//end for
 	}//end constructor
 	
