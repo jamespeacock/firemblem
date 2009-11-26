@@ -15,6 +15,7 @@ import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -149,13 +150,19 @@ public class CharacterChooser extends JFrame {
 		    new FileReader("src/data/weapons.txt"));
 	    ArrayList<String> weaponsList = new ArrayList<String>();
 	    String s = console.nextLine();
+	    Iterator<String> itr;
+	    
+	    HashSet<String> set = ParseMethods.toCharacterType(characterNames[n]).usableWeapons;
+	    while(console.hasNext()){
+		s = console.nextLine(); 
+		itr = set.iterator();
+		while(itr.hasNext()){
+		    if(s.contains(itr.next()));
+		    weaponsList.add(s.substring(0, s.indexOf(",")).trim());
+		}//end while
+	    }//end while
 
 	    /*
-	     * HashSet<String> set =
-	     * ParseMethods.toCharacterType(characterNames[n]).usableWeapons;
-	     * while(console.hasNext()){ s = console.nextLine(); if() }
-	     */
-
 	    switch (ParseMethods.toCharacterType(characterNames[n])) {
 	    case GNRL:
 		while (!s.contains(", Sword,"))
@@ -268,9 +275,9 @@ public class CharacterChooser extends JFrame {
 		}
 		break;
 	    }
+	    */
 	    Object[] ar = weaponsList.toArray();
 	    String[] ar2 = new String[ar.length];
-	    ar2 = new String[ar.length];
 	    for (int i = 0; i < ar.length; i++)
 		ar2[i] = (String) ar[i];
 	    return ar2;

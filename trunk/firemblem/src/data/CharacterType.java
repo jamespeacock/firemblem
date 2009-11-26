@@ -35,8 +35,8 @@ public enum CharacterType {
     public HashSet<String> usableWeapons;
     public String name;
 
-    static String[] textFile = new String[10];
-    static boolean textFileRead = false;
+    private static String[] textFile = new String[10];
+    private static boolean textFileRead = false;
 
     private CharacterType(String a) {
 	ParseMethods.initializeWeaponSearchMap();
