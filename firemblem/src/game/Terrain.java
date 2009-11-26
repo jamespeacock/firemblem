@@ -2,7 +2,7 @@ package game;
 
 import data.TerrainType;
 
-//10/21/09
+// 10/21/09
 
 /**
  * @author Brian Clanton
@@ -15,9 +15,9 @@ public class Terrain {
     public TerrainType type;
 
     public Terrain() {
-		moveEffect = 0;
-		occupied = false;
-		type = TerrainType.TILE;
+	moveEffect = 0;
+	occupied = false;
+	type = TerrainType.TILE;
     }// end default constructor
 
     /**
@@ -28,16 +28,16 @@ public class Terrain {
      *            the TerrainType of the new Terrain
      */
     public Terrain(TerrainType t) {
-		type = t;
-		occupied = false;
-		moveEffect = 0;
+	type = t;
+	occupied = false;
+	moveEffect = 0;
     }// end constructor
 
     @Override
     public String toString() {
-	return "" + type.name + "\ndefenseBoost=" + type.defenseBoost + "\nevadeBoost="
-		+ type.evadeBoost + "\nmoveEffect=" + moveEffect + "\noccupied="
-		+ occupied;
+	return "" + type.name + "\ndefenseBoost=" + type.defenseBoost
+		+ "\nevadeBoost=" + type.evadeBoost + "\nmoveEffect="
+		+ moveEffect + "\noccupied=" + occupied;
     }// end toString
 
     /**
