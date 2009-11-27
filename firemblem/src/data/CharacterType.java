@@ -1,5 +1,6 @@
 package data;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.HashSet;
@@ -35,11 +36,10 @@ public enum CharacterType {
     public HashSet<String> usableWeapons;
     public String name;
 
-    private static String[] textFile = new String[10];
+    private static String[] textFile;
     private static boolean textFileRead = false;
 
     private CharacterType(String a) {
-	ParseMethods.initializeWeaponSearchMap();
 	name = a;
 	usableWeapons = new HashSet<String>();
 	String[] f = read();
@@ -54,13 +54,14 @@ public enum CharacterType {
     private static String[] read() {
 	if (!textFileRead) {
 	    try {
-		Scanner reader = new Scanner(new FileReader(
+		textFile = new String[10];
+		Scanner reader = new Scanner(new File(
 			"src/data/usableweapons.txt"));
 		for (int i = 0; i < 10; i++)
 		    textFile[i] = reader.nextLine().trim();
 		textFileRead = true;
 	    } catch (FileNotFoundException e) {
-
+		e.printStackTrace();
 	    }
 	}// end if
 	return textFile;

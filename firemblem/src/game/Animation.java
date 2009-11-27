@@ -64,7 +64,6 @@ public class Animation implements Collection<BufferedImage>,
 		return frame;
 	}
 
-	@Override
 	public boolean add(BufferedImage i) {
 		if (i == null)
 			throw new NullPointerException();
@@ -72,7 +71,6 @@ public class Animation implements Collection<BufferedImage>,
 		return true;
 	}
 
-	@Override
 	public boolean addAll(Collection<? extends BufferedImage> c) {
 		for (BufferedImage img : c) {
 			if (img == null)
@@ -82,68 +80,55 @@ public class Animation implements Collection<BufferedImage>,
 		return true;
 	}
 
-	@Override
 	public void clear() {
 		frames.clear();
 	}
 
-	@Override
 	public boolean contains(Object o) {
 		return frames.contains(o);
 	}
 
-	@Override
 	public boolean containsAll(Collection<?> c) {
 		return frames.containsAll(c);
 	}
 
-	@Override
 	public boolean isEmpty() {
 		return frames.isEmpty();
 	}
 
-	@Override
 	public Iterator<BufferedImage> iterator() {
 		throw new UnsupportedOperationException(
 				"Use this object for it, dumbass");
 	}
 
-	@Override
 	public boolean remove(Object o) {
 		return frames.remove(o);
 	}
 
-	@Override
 	public boolean removeAll(Collection<?> c) {
 		return frames.removeAll(c);
 	}
 
-	@Override
 	public boolean retainAll(Collection<?> c) {
 		return frames.retainAll(c);
 	}
 
-	@Override
 	public int size() {
 		return frames.size();
 	}
 
-	@Override
 	public Object[] toArray() {
 		return frames.toArray();
 	}
 
-	@Override
 	public <T> T[] toArray(T[] arr) {
 		return frames.toArray(arr);
 	}
 
-	@Override
 	public boolean hasNext() {
 		return frame + 1 < frames.size();
 	}
 
-	@Override
 	public BufferedImage next() {
 		frame++;
 		if (frame >= frames.size())
@@ -155,7 +140,6 @@ public class Animation implements Collection<BufferedImage>,
 		return frames.get(frame);
 	}
 
-	@Override
 	public void remove() {
 		if (nextCalled) {
 			frames.remove(frame);
