@@ -144,6 +144,7 @@ public class AttackPhaseTester extends JFrame {
 
     public static void main(String[] args) throws ClassNotFoundException,
 	    IOException {
+	ParseMethods.initializeWeaponSearchMap();
 	ParseMethods.initializeCharacterSearchMap();
 	ParseMethods.initializeTerrainSearchMap();
 	JFrame.setDefaultLookAndFeelDecorated(true);
