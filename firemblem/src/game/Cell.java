@@ -3,6 +3,10 @@ package game;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import javax.swing.ImageIcon;
+
+import data.TileImage;
+
 /**
  * 
  * @author Xiagu
@@ -25,6 +29,7 @@ public class Cell {
 	switch (terrain) {
 	case Cell.TER_CASTLE:
 	    g.setColor(Color.red);
+	    //g.drawImage(TileImage.OUTPOST.img, x, y, null);
 	    break;
 	case Cell.TER_TOWER:
 	    g.setColor(Color.blue);
@@ -38,7 +43,7 @@ public class Cell {
 	case Cell.TER_ENTRANCE:
 	    g.setColor(Color.magenta.darker().darker().darker());
 	}
-
+	
 	g.fillRect(x, y, size, size);
     }
 }

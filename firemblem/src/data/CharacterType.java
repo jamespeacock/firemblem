@@ -31,7 +31,7 @@ public enum CharacterType {
     TRBDR("Troubador"),
     PRT("Pirate"),
     FKNG("Falcoknight"),
-    THF("Theif");
+    THF("Thief");
 
     public HashSet<String> usableWeapons;
     public String name;
