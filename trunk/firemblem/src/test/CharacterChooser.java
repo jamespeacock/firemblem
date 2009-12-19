@@ -44,7 +44,12 @@ public class CharacterChooser extends JFrame {
     private static HashMap<String, Weapon> weaponsMap;
     public String w1, w2;
 
-    // TODO: Add some comments, Cy.
+    /**
+     * Generates the character chooser panel
+     * 
+     * @throws ClassNotFoundException
+     * @throws IOException
+     */
     public CharacterChooser() throws ClassNotFoundException, IOException {
 	super("Character Chooser - Brian Clanton 11/6/09");
 	pane = new JPanel();
@@ -126,6 +131,13 @@ public class CharacterChooser extends JFrame {
 	setAlwaysOnTop(true);
     }// end constructor
 
+    /**
+     * Generates the Weapon HashMap that holds all the Weapons using the name as
+     * a key
+     * 
+     * @throws ClassNotFoundException
+     * @throws IOException
+     */
     public void generateHashMap() throws ClassNotFoundException, IOException {
 	try {
 	    Scanner console = new Scanner(
@@ -140,10 +152,15 @@ public class CharacterChooser extends JFrame {
 		weaponsMap.put(s.substring(0, s.indexOf(",")), w);
 	    }
 	} catch (FileNotFoundException e) {
-	    System.out.println("hee");
 	}
     }
 
+    /**
+     * Creates the list of possible Weapons for a character based on the CharacterType
+     * 
+     * @param n
+     * @return
+     */
     public String[] getWeaponsList(int n) {
 	try {
 	    Scanner console = new Scanner(
@@ -151,131 +168,18 @@ public class CharacterChooser extends JFrame {
 	    ArrayList<String> weaponsList = new ArrayList<String>();
 	    String s = console.nextLine();
 	    Iterator<String> itr;
-	    
-	    HashSet<String> set = ParseMethods.toCharacterType(characterNames[n]).usableWeapons;
-	    while(console.hasNext()){
-		s = console.nextLine(); 
+
+	    HashSet<String> set = ParseMethods
+		    .toCharacterType(characterNames[n]).usableWeapons;
+	    while (console.hasNext()) {
+		s = console.nextLine();
 		itr = set.iterator();
-		while(itr.hasNext()){
-		    if(s.contains(itr.next()));
-		    weaponsList.add(s.substring(0, s.indexOf(",")).trim());
-		}//end while
-	    }//end while
+		while (itr.hasNext()) {
+		    if (s.contains(itr.next()))
+			weaponsList.add(s.substring(0, s.indexOf(",")).trim());
+		}// end while
+	    }// end while
 
-	    /*
-	    switch (ParseMethods.toCharacterType(characterNames[n])) {
-	    case GNRL:
-		while (!s.contains(", Sword,"))
-		    s = console.nextLine();
-		while (s.contains(", Sword,")) {
-		    weaponsList.add(s.substring(0, s.indexOf(",")).trim());
-		    s = console.nextLine();
-		}
-		while (s.contains(", Lance,")) {
-		    weaponsList.add(s.substring(0, s.indexOf(",")).trim());
-		    s = console.nextLine();
-		}
-		while (s.contains(", Axe,")) {
-		    weaponsList.add(s.substring(0, s.indexOf(",")).trim());
-		    s = console.nextLine();
-		}
-		break;
-
-	    case HERO:
-		while (!s.contains(", Sword,"))
-		    s = console.nextLine();
-		while (s.contains(", Sword,")) {
-		    weaponsList.add(s.substring(0, s.indexOf(",")).trim());
-		    s = console.nextLine();
-		}
-		while (!s.contains(", Axe,"))
-		    s = console.nextLine();
-		while (s.contains(", Axe,")) {
-		    weaponsList.add(s.substring(0, s.indexOf(",")).trim());
-		    s = console.nextLine();
-		}
-		break;
-
-	    case THF:
-	    case MYR:
-	    case MCNRY:
-	    case LORD:
-		while (!s.contains(", Sword,"))
-		    s = console.nextLine();
-		while (s.contains(", Sword,")) {
-		    weaponsList.add(s.substring(0, s.indexOf(",")).trim());
-		    s = console.nextLine();
-		}
-		break;
-
-	    case PRT:
-	    case FGT:
-	    case JNYMN:
-	    case BRSKR:
-		while (!s.contains(", Axe,"))
-		    s = console.nextLine();
-		while (s.contains(", Axe,")) {
-		    weaponsList.add(s.substring(0, s.indexOf(",")).trim());
-		    s = console.nextLine();
-		}
-		break;
-
-	    case ARCH:
-		while (!s.contains(", Bow,"))
-		    s = console.nextLine();
-		while (s.contains(", Bow,")) {
-		    weaponsList.add(s.substring(0, s.indexOf(",")).trim());
-		    s = console.nextLine();
-		}
-		break;
-
-	    case PUPIL:
-	    case MAGE:
-		while (!s.contains(", Anima,"))
-		    s = console.nextLine();
-		while (s.contains(", Anima,")) {
-		    weaponsList.add(s.substring(0, s.indexOf(",")).trim());
-		    s = console.nextLine();
-		}
-		break;
-
-	    case TRBDR:
-	    case CLR:
-		while (!s.contains(", Staff,"))
-		    s = console.nextLine();
-		while (s.contains(", Staff,") && console.hasNext()) {
-		    weaponsList.add(s.substring(0, s.indexOf(",")).trim());
-		    s = console.nextLine();
-		}
-		break;
-
-	    case RCRT:
-	    case PKNG:
-	    case KNG:
-		while (!s.contains(", Lance,"))
-		    s = console.nextLine();
-		while (s.contains(", Lance,")) {
-		    weaponsList.add(s.substring(0, s.indexOf(",")).trim());
-		    s = console.nextLine();
-		}
-		break;
-
-	    case FKNG:
-	    case CVLR:
-	    case PLDN:
-		while (!s.contains(", Sword,"))
-		    s = console.nextLine();
-		while (s.contains(", Sword,")) {
-		    weaponsList.add(s.substring(0, s.indexOf(",")).trim());
-		    s = console.nextLine();
-		}
-		while (s.contains(", Lance,")) {
-		    weaponsList.add(s.substring(0, s.indexOf(",")).trim());
-		    s = console.nextLine();
-		}
-		break;
-	    }
-	    */
 	    Object[] ar = weaponsList.toArray();
 	    String[] ar2 = new String[ar.length];
 	    for (int i = 0; i < ar.length; i++)
@@ -351,7 +255,7 @@ public class CharacterChooser extends JFrame {
 	t2 = ParseMethods.toTerrainType(terrainNames[terrainChoiceTwo]);
 
 	dispose();
-	AttackPhaseTester test = new AttackPhaseTester(c1, c2, t1, t2);
+	new AttackPhaseTester(c1, c2, t1, t2);
 
     }// end incorporateChanges
 

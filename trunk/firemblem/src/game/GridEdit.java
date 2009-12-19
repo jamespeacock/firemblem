@@ -59,6 +59,11 @@ public class GridEdit extends JFrame {
     public JPanel drawPanel;
 
     /**
+     * The MenuBar with all the options for what to do with your edited Map.
+     */
+    public JMenuBar menubar;
+
+    /**
      * Updates 10 times per second. Calls repaint() (supposedly) every 10th of a
      * second.
      */
@@ -100,8 +105,57 @@ public class GridEdit extends JFrame {
     public GridEdit() {
 	setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
 
+	menubar =  new JMenuBar();
+	JMenu menu = new JMenu("Options");
+	menu.setMnemonic(KeyEvent.VK_O);
+
+	JMenuItem newMap = new JMenuItem("New", KeyEvent.VK_N);
+	newMap.addActionListener(new ActionListener (){
+	    public void actionPerformed(ActionEvent e) {
+		new GridEdit();
+	    }
+	});
+	
+	/**
+	 * This thing is supposed to allow you to save your edits, but it's not working for me..
+	 * somebody remedy it.
+	 */
+	//TODO SOMEBODY FINISH THIS PART
+	//Part begins here:
+	
+	final JMenuItem saveMap = new JMenuItem("Save", KeyEvent.VK_S);
+	saveMap.addActionListener(new ActionListener() {
+	    public void actionPerformed(ActionEvent e){
+		    JFileChooser fileSaver = new JFileChooser("../firemblem/src/game");
+			fileSaver.setFileFilter(new FileNameExtensionFilter(
+				"FirEmblem++ MAP files", "map"));
+			fileSaver.showSaveDialog(menubar);
+			try {
+			    System.out.println(fileSaver.getSelectedFile());
+			    PrintWriter p = new PrintWriter(fileSaver.getSelectedFile());
+			    for(int i = 0; i < map.length; i++)
+				for(int j = 0; j < map[i].length; j++){
+				    p.write(map[i][j].xLoc);
+				    p.print(map[i][j].zLoc);
+				    p.println(map[i][j].terrain);
+				}
+			} catch (FileNotFoundException e1) {
+			}
+	    }
+	});
+	
+	//part ends here
+	
+	menu.add(newMap);
+	menu.add(saveMap);
+	
+	menubar.setPreferredSize(new Dimension(50, 20));
+	menubar.add(menu);
+
+	setJMenuBar(menubar);
 	// Is in another panel to avoid messing with the sizes of window
 	// decorations >_<
+	
 	drawPanel = new JPanel() {
 	    public void paint(Graphics g) {
 		super.paint(g);
@@ -211,7 +265,7 @@ public class GridEdit extends JFrame {
 		map[i][j] = new Cell(Cell.TER_EMPTY, i, j);
 
 	// choose file
-	JFileChooser filePicker = new JFileChooser("..");
+	JFileChooser filePicker = new JFileChooser("../firemblem/src");
 	filePicker.setFileFilter(new FileNameExtensionFilter(
 		"FirEmblem++ MAP files", "map"));
 	if (filePicker.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
