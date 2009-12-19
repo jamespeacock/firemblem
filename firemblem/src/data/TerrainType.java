@@ -118,7 +118,7 @@ public enum TerrainType {
 
     public int evadeBoost, defenseBoost;
     public String name;
-    public TileImage img;
+    public TerrainImage img;
 
     private TerrainType(int evadeBoost, int defenseBoost, String name) {
 	this.evadeBoost = evadeBoost;

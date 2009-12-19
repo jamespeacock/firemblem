@@ -14,7 +14,7 @@ import java.util.InputMismatchException;
  * 
  * @author Xiagu
  */
-public enum TileImage {
+public enum TerrainImage implements ImageCollectionEnum {
     FLAT_PLAIN(1, 0),
     HUT(5, 3),
     ARMORY(14, 6),
@@ -31,18 +31,29 @@ public enum TileImage {
     /**
      * The looping tile animation associated with this type of tile.
      */
-    public Animation anim;
+    private Animation anim;
 
     /**
      * The tile image associated with this type of tile.
      */
-    public BufferedImage img;
+    private BufferedImage img;
 
     /**
      * Whether or not this type of tile is animated.
      */
-    public boolean isAnimated;
+    private boolean isAnimated;
+    
+    public Animation getAnim() {
+        return anim;
+    }
 
+    public BufferedImage getImg() {
+        return img;
+    }
+
+    public boolean isAnimated() {
+        return isAnimated;
+    }
     /**
      * The sheet containing images for all of the tiles.
      */
@@ -59,7 +70,7 @@ public enum TileImage {
      * @param tileY
      *            the y index of the tile
      */
-    private TileImage(int tileX, int tileY) {
+    private TerrainImage(int tileX, int tileY) {
 	Raster r = tileSheet.getTile(tileX, tileY);
 	img = new BufferedImage(r.getWidth(), r.getHeight(),
 		BufferedImage.TYPE_INT_RGB);
@@ -75,7 +86,7 @@ public enum TileImage {
      * @param tileYs
      *            the y locations of the tiles, in frame order.
      */
-    private TileImage(int[] tileXs, int[] tileYs) {
+    private TerrainImage(int[] tileXs, int[] tileYs) {
 	if (tileXs.length != tileYs.length)
 	    throw new InputMismatchException(
 		    "tileXs and tileYs must have the same number of elements");

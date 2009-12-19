@@ -1,5 +1,7 @@
 package data;
 
+import game.Character;
+import game.Map;
 import game.Terrain;
 
 import java.awt.Graphics;
@@ -16,30 +18,38 @@ import javax.swing.JPanel;
  */
 public class MapPanel extends JPanel {
 
-    // Grid
-
-    Terrain[][] terrainMap;
-
-    public MapPanel(/* Grid theGrid */) {
-	// retrieve Terrain[][] array from Grid instance using appropriate
-	// method
+    public Map map;
+    
+    public Terrain[][] terrainGrid;
+    
+    /**
+     * 
+     * @param m
+     */
+    public MapPanel(Map m){
+	map = m;
+	terrainGrid = m.grid;
     }
 
     @Override
     public void paint(Graphics g) {
 	super.paint(g);
 
-	for (int i = 0; i < terrainMap.length; i++) {
-	    for (int j = 0; j < terrainMap[0].length; j++) {
-		if (terrainMap[i][j].type.img.isAnimated)
-		    g.drawImage(terrainMap[i][j].type.img.anim.next(), 16 * i,
+	for (int i = 0; i < terrainGrid.length; i++) {
+	    for (int j = 0; j < terrainGrid[0].length; j++) {
+		if (terrainGrid[i][j].type.img.isAnimated())
+		    g.drawImage(terrainGrid[i][j].type.img.getAnim().next(), 16 * i,
 			    16 * j, null);
 		else
-		    g.drawImage(terrainMap[i][j].type.img.img, 16 * i, 16 * j,
+		    g.drawImage(terrainGrid[i][j].type.img.getImg(), 16 * i, 16 * j,
 			    null);
 	    }
 	}
 	
-	// TODO: Write Character drawing code. Assume a HashSet is in Grid.
+	for(Character ch : map.units) {
+	    g.drawImage(ch.map.getAnim().next(), 16*ch.position.x, 16*ch.position.y, null);
+	}
+	
+	// TODO: add the cursor-thingy. 
     }
 }

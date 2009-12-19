@@ -39,6 +39,15 @@ public class Character {
     public CharacterType type;
     public int[] growthRates;
     public int classPower = 1, classBonusA, classBonusB;
+    /**
+     * The animation for an unselected character standing on the battlefield.
+     */
+    public CharacterImage map;
+    
+    /**
+     * The animation for a selected character standing on the battlefield.
+     */
+    public CharacterImage selected;
 
     public Character() {
 	name = "";
