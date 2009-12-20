@@ -99,6 +99,13 @@ public class GridEdit extends JFrame {
     // BufferedImage.TYPE_INT_RGB);
 
     /**
+     * This is a handy method whose only purpose is to close the current viewing window
+     */
+    public void closeOldGridEdit(){
+	this.dispose();
+    }
+    
+    /**
      * Constructs a new <code>GridEdit</code> object. Currently all maps will be
      * 20x20, but eventually maps of different sizes will be supported.
      */
@@ -112,6 +119,7 @@ public class GridEdit extends JFrame {
 	JMenuItem newMap = new JMenuItem("New", KeyEvent.VK_N);
 	newMap.addActionListener(new ActionListener (){
 	    public void actionPerformed(ActionEvent e) {
+		closeOldGridEdit();
 		new GridEdit();
 	    }
 	});
@@ -131,14 +139,18 @@ public class GridEdit extends JFrame {
 				"FirEmblem++ MAP files", "map"));
 			fileSaver.showSaveDialog(menubar);
 			try {
-			    System.out.println(fileSaver.getSelectedFile());
-			    PrintWriter p = new PrintWriter(fileSaver.getSelectedFile());
+			    String s = fileSaver.getSelectedFile().getPath();
+			    if(!s.contains(".map"))
+				s+=".map";
+			    PrintWriter p = new PrintWriter(s);
 			    for(int i = 0; i < map.length; i++)
 				for(int j = 0; j < map[i].length; j++){
-				    p.write(map[i][j].xLoc);
-				    p.print(map[i][j].zLoc);
+				    p.print(map[i][j].xLoc + " ");
+				    p.print(map[i][j].zLoc + " ");
 				    p.println(map[i][j].terrain);
 				}
+			    p.flush();
+			    p.close();
 			} catch (FileNotFoundException e1) {
 			}
 	    }
