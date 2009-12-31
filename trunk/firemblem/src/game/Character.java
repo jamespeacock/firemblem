@@ -547,6 +547,10 @@ public class Character {
 	return new Weapon("Dummy");
     }
 
+    public void setName(String s){
+	name = s;
+    }
+    
     private boolean isInRange(Character target) {
 	return activeWeapon.range >= (int) position.distance(target.position);
     }// end isInRange
