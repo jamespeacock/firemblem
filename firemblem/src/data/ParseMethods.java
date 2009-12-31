@@ -8,7 +8,7 @@ public class ParseMethods {
     public static TreeMap<String, WeaponType> weaponSearchMap = new TreeMap<String, WeaponType>();
 
     public static void initializeCharacterSearchMap() {
-	String[] names = { "Myrmidon", "Lord", "Knight", "Cleric", "Mage",
+	String[] names = {"Myrmidon", "Lord", "Knight", "Cleric", "Mage",
 		"Archer", "Fighter", "Recruit", "Cavalier", "Paladin",
 		"Berserker", "General", "Mercenary", "Pegasus Knight",
 		"Journeyman", "Pupil", "Hero", "Troubador", "Pirate",

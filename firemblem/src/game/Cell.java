@@ -5,7 +5,6 @@ import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
 
-import data.TileImage;
 
 /**
  * 
@@ -28,8 +27,7 @@ public class Cell {
     public void draw(Graphics g, int x, int y, int size) {
 	switch (terrain) {
 	case Cell.TER_CASTLE:
-	    g.setColor(Color.red);
-	    //g.drawImage(TileImage.OUTPOST.img, x, y, null);
+	    g.setColor(Color.red);	    
 	    break;
 	case Cell.TER_TOWER:
 	    g.setColor(Color.blue);
