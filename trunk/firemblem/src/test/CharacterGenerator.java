@@ -13,6 +13,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -36,6 +37,20 @@ import data.WeaponType;
 
 public class CharacterGenerator extends JFrame {
 
+    /* ~!!! READ !!!~:
+     *                    ______________________
+     *    A              /                      \
+     *   | |________    |  This file made l33t   |
+     *   |       __|>   |  by PI-FACE. Biribiri! |
+     *   | @   @ |       \  ____________________/
+     *   \O  W  O/  ___ _ |/
+     *   /       \_/ __/
+     *   |       | _/
+     *   | w   w T/
+     *   \       /
+     *   ==/---\==
+     */
+    
     public Character c1;
     private JComboBox one, five;
     private JTextField text;
@@ -63,6 +78,9 @@ public class CharacterGenerator extends JFrame {
 
 	pane.setLayout(new BoxLayout(pane, BoxLayout.PAGE_AXIS));
 	panel1 = new JPanel(new FlowLayout());
+	
+	ParseMethods.initializeWeaponSearchMap();
+	ParseMethods.initializeCharacterSearchMap();
 
 	generateHashMap();
 	readCharacterNames();
@@ -191,6 +209,7 @@ public class CharacterGenerator extends JFrame {
 	    characterNames = new String[t.size()];
 	    for (int i = 0; i < t.size(); i++)
 		characterNames[i] = t.get(i);
+	    System.out.println(Arrays.toString(characterNames));
 	}// end try
 	catch (FileNotFoundException e) {
 	    System.out.println("File not found.");
@@ -207,7 +226,8 @@ public class CharacterGenerator extends JFrame {
 	c1 = new Character(ParseMethods
 		.toCharacterType(characterNames[characterChoiceOne]),
 		getActiveWeapon((String) five.getSelectedItem()), 0, 0);
-	c1.setName(text.getSelectedText());
+	c1.setName(text.getText());
+	System.out.println(c1);
 	return c1;
     }// end incorporateChanges
 
