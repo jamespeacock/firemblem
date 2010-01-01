@@ -7,6 +7,8 @@ package game;
  */
 import java.awt.Point;
 import java.io.*;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.TreeMap;
 
@@ -549,6 +551,28 @@ public class Character {
 
     public void setName(String s){
 	name = s;
+    }
+    
+    /**
+     * 
+     * @return a representation of the character's variables
+     */
+    public String toString() {
+	return "{Name:"+name+
+		" lvl:"+lvl+
+		" hp:"+hp+
+		" str:"+str+
+		" lvl:"+lvl+
+		" skl:"+skl+
+		" spd:"+spd+
+		" luc:"+luc+
+		" def:"+def+
+		" res:"+res+
+		" con:"+con+
+		" mov:"+mov+
+		" exp:"+exp+
+		" wpn:"+activeWeapon.toString().substring(5, activeWeapon.toString().indexOf("\n"))+
+		"}";
     }
     
     private boolean isInRange(Character target) {
