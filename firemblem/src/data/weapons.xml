@@ -1,0 +1,1093 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<weaponList>
+
+	<weapon>
+		<name>Rapier</name>
+		<attack>7</attack>
+		<hit>95</hit>
+		<crit>10</crit>
+		<weight>5</weight>
+		<durability>40</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Sieglinde</name>
+		<attack>16</attack>
+		<hit>90</hit>
+		<crit>0</crit>
+		<weight>9</weight>
+		<durability>30</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Iron Sword</name>
+		<attack>5</attack>
+		<hit>90</hit>
+		<crit>0</crit>
+		<weight>5</weight>
+		<durability>45</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Slim Sword</name>
+		<attack>3</attack>
+		<hit>100</hit>
+		<crit>5</crit>
+		<weight>2</weight>
+		<durability>30</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Shadowkiller</name>
+		<attack>5</attack>
+		<hit>90</hit>
+		<crit>5</crit>
+		<weight>5</weight>
+		<durability>60</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Steel Sword</name>
+		<attack>8</attack>
+		<hit>75</hit>
+		<crit>0</crit>
+		<weight>10</weight>
+		<durability>20</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Iron Blade</name>
+		<attack>9</attack>
+		<hit>70</hit>
+		<crit>0</crit>
+		<weight>12</weight>
+		<durability>35</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Poison Sword</name>
+		<attack>3</attack>
+		<hit>70</hit>
+		<crit>0</crit>
+		<weight>6</weight>
+		<durability>40</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Zanbato</name>
+		<attack>6</attack>
+		<hit>85</hit>
+		<crit>0</crit>
+		<weight>11</weight>
+		<durability>18</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Shamshir</name>
+		<attack>8</attack>
+		<hit>75</hit>
+		<crit>35</crit>
+		<weight>5</weight>
+		<durability>20</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Armor Slayer</name>
+		<attack>8</attack>
+		<hit>80</hit>
+		<crit>0</crit>
+		<weight>11</weight>
+		<durability>18</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Steel Blade</name>
+		<attack>11</attack>
+		<hit>65</hit>
+		<crit>0</crit>
+		<weight>14</weight>
+		<durability>25</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Killing Edge</name>
+		<attack>9</attack>
+		<hit>75</hit>
+		<crit>30</crit>
+		<weight>7</weight>
+		<durability>20</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Wyrmslayer</name>
+		<attack>8</attack>
+		<hit>75</hit>
+		<crit>0</crit>
+		<weight>5</weight>
+		<durability>30</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Lancereaver</name>
+		<attack>9</attack>
+		<hit>75</hit>
+		<crit>5</crit>
+		<weight>9</weight>
+		<durability>15</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Light Brand</name>
+		<attack>9</attack>
+		<hit>70</hit>
+		<crit>0</crit>
+		<weight>9</weight>
+		<durability>25</durability>
+		<type>Sword</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Wind Sword</name>
+		<attack>9</attack>
+		<hit>70</hit>
+		<crit>0</crit>
+		<weight>9</weight>
+		<durability>40</durability>
+		<type>Sword</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Brave Sword</name>
+		<attack>9</attack>
+		<hit>75</hit>
+		<crit>0</crit>
+		<weight>12</weight>
+		<durability>30</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Silver Sword</name>
+		<attack>13</attack>
+		<hit>80</hit>
+		<crit>0</crit>
+		<weight>8</weight>
+		<durability>20</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Silver Blade</name>
+		<attack>14</attack>
+		<hit>60</hit>
+		<crit>0</crit>
+		<weight>13</weight>
+		<durability>15</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Rune Sword</name>
+		<attack>12</attack>
+		<hit>65</hit>
+		<crit>0</crit>
+		<weight>11</weight>
+		<durability>15</durability>
+		<type>Sword</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Audhulma</name>
+		<attack>18</attack>
+		<hit>85</hit>
+		<crit>0</crit>
+		<weight>9</weight>
+		<durability>30</durability>
+		<type>Sword</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Reginleif</name>
+		<attack>10</attack>
+		<hit>80</hit>
+		<crit>10</crit>
+		<weight>8</weight>
+		<durability>45</durability>
+		<type>Lance</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Siegmund</name>
+		<attack>17</attack>
+		<hit>80</hit>
+		<crit>0</crit>
+		<weight>11</weight>
+		<durability>30</durability>
+		<type>Lance</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Iron Lance</name>
+		<attack>7</attack>
+		<hit>80</hit>
+		<crit>0</crit>
+		<weight>8</weight>
+		<durability>45</durability>
+		<type>Lance</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Slim Lance</name>
+		<attack>4</attack>
+		<hit>85</hit>
+		<crit>5</crit>
+		<weight>4</weight>
+		<durability>30</durability>
+		<type>Lance</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Javelin</name>
+		<attack>6</attack>
+		<hit>65</hit>
+		<crit>0</crit>
+		<weight>11</weight>
+		<durability>20</durability>
+		<type>Lance</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Bright Lance</name>
+		<attack>7</attack>
+		<hit>80</hit>
+		<crit>5</crit>
+		<weight>8</weight>
+		<durability>60</durability>
+		<type>Lance</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Toxic Lance</name>
+		<attack>4</attack>
+		<hit>65</hit>
+		<crit>0</crit>
+		<weight>8</weight>
+		<durability>40</durability>
+		<type>Lance</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Heavy Spear</name>
+		<attack>9</attack>
+		<hit>70</hit>
+		<crit>0</crit>
+		<weight>14</weight>
+		<durability>16</durability>
+		<type>Lance</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Steel Lance</name>
+		<attack>10</attack>
+		<hit>70</hit>
+		<crit>0</crit>
+		<weight>13</weight>
+		<durability>30</durability>
+		<type>Lance</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Horseslayer</name>
+		<attack>7</attack>
+		<hit>70</hit>
+		<crit>0</crit>
+		<weight>13</weight>
+		<durability>16</durability>
+		<type>Lance</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Short Spear</name>
+		<attack>9</attack>
+		<hit>60</hit>
+		<crit>0</crit>
+		<weight>12</weight>
+		<durability>18</durability>
+		<type>Lance</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Killer Lance</name>
+		<attack>10</attack>
+		<hit>70</hit>
+		<crit>30</crit>
+		<weight>9</weight>
+		<durability>20</durability>
+		<type>Lance</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Axereaver</name>
+		<attack>10</attack>
+		<hit>70</hit>
+		<crit>5</crit>
+		<weight>11</weight>
+		<durability>15</durability>
+		<type>Lance</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Dragonspear</name>
+		<attack>10</attack>
+		<hit>70</hit>
+		<crit>0</crit>
+		<weight>8</weight>
+		<durability>30</durability>
+		<type>Lance</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Spear</name>
+		<attack>12</attack>
+		<hit>70</hit>
+		<crit>5</crit>
+		<weight>10</weight>
+		<durability>15</durability>
+		<type>Lance</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Brave Lance</name>
+		<attack>10</attack>
+		<hit>70</hit>
+		<crit>0</crit>
+		<weight>14</weight>
+		<durability>30</durability>
+		<type>Lance</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Silver Lance</name>
+		<attack>14</attack>
+		<hit>75</hit>
+		<crit>0</crit>
+		<weight>10</weight>
+		<durability>20</durability>
+		<type>Lance</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Vidofnir</name>
+		<attack>15</attack>
+		<hit>85</hit>
+		<crit>0</crit>
+		<weight>11</weight>
+		<durability>30</durability>
+		<type>Lance</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Iron Axe</name>
+		<attack>8</attack>
+		<hit>75</hit>
+		<crit>0</crit>
+		<weight>10</weight>
+		<durability>45</durability>
+		<type>Axe</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Steel Axe</name>
+		<attack>11</attack>
+		<hit>65</hit>
+		<crit>0</crit>
+		<weight>15</weight>
+		<durability>30</durability>
+		<type>Axe</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Devil Axe</name>
+		<attack>18</attack>
+		<hit>55</hit>
+		<crit>0</crit>
+		<weight>18</weight>
+		<durability>20</durability>
+		<type>Axe</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Hand Axe</name>
+		<attack>7</attack>
+		<hit>60</hit>
+		<crit>0</crit>
+		<weight>12</weight>
+		<durability>20</durability>
+		<type>Axe</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Hatchet</name>
+		<attack>4</attack>
+		<hit>85</hit>
+		<crit>0</crit>
+		<weight>5</weight>
+		<durability>50</durability>
+		<type>Axe</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Fiendcleaver</name>
+		<attack>8</attack>
+		<hit>75</hit>
+		<crit>5</crit>
+		<weight>10</weight>
+		<durability>60</durability>
+		<type>Axe</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Poison Axe</name>
+		<attack>4</attack>
+		<hit>60</hit>
+		<crit>0</crit>
+		<weight>10</weight>
+		<durability>40</durability>
+		<type>Axe</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Halberd</name>
+		<attack>10</attack>
+		<hit>60</hit>
+		<crit>0</crit>
+		<weight>15</weight>
+		<durability>18</durability>
+		<type>Axe</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Hammer</name>
+		<attack>10</attack>
+		<hit>55</hit>
+		<crit>0</crit>
+		<weight>15</weight>
+		<durability>20</durability>
+		<type>Axe</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Killer Axe</name>
+		<attack>11</attack>
+		<hit>65</hit>
+		<crit>30</crit>
+		<weight>11</weight>
+		<durability>20</durability>
+		<type>Axe</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Swordreaver</name>
+		<attack>11</attack>
+		<hit>65</hit>
+		<crit>5</crit>
+		<weight>13</weight>
+		<durability>15</durability>
+		<type>Axe</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Swordslayer</name>
+		<attack>11</attack>
+		<hit>80</hit>
+		<crit>5</crit>
+		<weight>13</weight>
+		<durability>20</durability>
+		<type>Axe</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Dragon Axe</name>
+		<attack>12</attack>
+		<hit>60</hit>
+		<crit>0</crit>
+		<weight>11</weight>
+		<durability>30</durability>
+		<type>Axe</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Brave Axe</name>
+		<attack>10</attack>
+		<hit>65</hit>
+		<crit>0</crit>
+		<weight>16</weight>
+		<durability>30</durability>
+		<type>Axe</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Battle Axe</name>
+		<attack>13</attack>
+		<hit>60</hit>
+		<crit>5</crit>
+		<weight>15</weight>
+		<durability>20</durability>
+		<type>Axe</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Tomahawk</name>
+		<attack>13</attack>
+		<hit>65</hit>
+		<crit>0</crit>
+		<weight>14</weight>
+		<durability>15</durability>
+		<type>Axe</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Silver Axe</name>
+		<attack>15</attack>
+		<hit>70</hit>
+		<crit>0</crit>
+		<weight>12</weight>
+		<durability>20</durability>
+		<type>Axe</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Garm</name>
+		<attack>20</attack>
+		<hit>75</hit>
+		<crit>0</crit>
+		<weight>13</weight>
+		<durability>30</durability>
+		<type>Axe</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Iron Bow</name>
+		<attack>6</attack>
+		<hit>85</hit>
+		<crit>0</crit>
+		<weight>5</weight>
+		<durability>45</durability>
+		<type>Bow</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Beacon Bow</name>
+		<attack>6</attack>
+		<hit>85</hit>
+		<crit>5</crit>
+		<weight>5</weight>
+		<durability>60</durability>
+		<type>Bow</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Short Bow</name>
+		<attack>5</attack>
+		<hit>85</hit>
+		<crit>10</crit>
+		<weight>3</weight>
+		<durability>22</durability>
+		<type>Bow</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Long Bow</name>
+		<attack>5</attack>
+		<hit>65</hit>
+		<crit>0</crit>
+		<weight>10</weight>
+		<durability>20</durability>
+		<type>Bow</type>
+		<range>3</range>
+	</weapon>
+
+	<weapon>
+		<name>Steel Bow</name>
+		<attack>9</attack>
+		<hit>70</hit>
+		<crit>0</crit>
+		<weight>9</weight>
+		<durability>30</durability>
+		<type>Bow</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Poison Bow</name>
+		<attack>4</attack>
+		<hit>65</hit>
+		<crit>0</crit>
+		<weight>5</weight>
+		<durability>40</durability>
+		<type>Bow</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Killer Bow</name>
+		<attack>9</attack>
+		<hit>75</hit>
+		<crit>30</crit>
+		<weight>7</weight>
+		<durability>20</durability>
+		<type>Bow</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Brave Bow</name>
+		<attack>10</attack>
+		<hit>70</hit>
+		<crit>0</crit>
+		<weight>12</weight>
+		<durability>30</durability>
+		<type>Bow</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Silver Bow</name>
+		<attack>13</attack>
+		<hit>75</hit>
+		<crit>0</crit>
+		<weight>6</weight>
+		<durability>20</durability>
+		<type>Bow</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Nidhogg</name>
+		<attack>18</attack>
+		<hit>80</hit>
+		<crit>0</crit>
+		<weight>7</weight>
+		<durability>30</durability>
+		<type>Bow</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Fire</name>
+		<attack>5</attack>
+		<hit>90</hit>
+		<crit>0</crit>
+		<weight>4</weight>
+		<durability>40</durability>
+		<type>Anima</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Thunder</name>
+		<attack>8</attack>
+		<hit>80</hit>
+		<crit>5</crit>
+		<weight>6</weight>
+		<durability>35</durability>
+		<type>Anima</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Elfire</name>
+		<attack>10</attack>
+		<hit>85</hit>
+		<crit>0</crit>
+		<weight>10</weight>
+		<durability>30</durability>
+		<type>Anima</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Bolting</name>
+		<attack>12</attack>
+		<hit>60</hit>
+		<crit>0</crit>
+		<weight>20</weight>
+		<durability>5</durability>
+		<type>Anima</type>
+		<range>10</range>
+	</weapon>
+
+	<weapon>
+		<name>Alacalibur</name>
+		<attack>8</attack>
+		<hit>85</hit>
+		<crit>0</crit>
+		<weight>2</weight>
+		<durability>20</durability>
+		<type>Anima</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Fimbulvetr</name>
+		<attack>13</attack>
+		<hit>80</hit>
+		<crit>0</crit>
+		<weight>12</weight>
+		<durability>20</durability>
+		<type>Anima</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Excalibur</name>
+		<attack>18</attack>
+		<hit>90</hit>
+		<crit>10</crit>
+		<weight>13</weight>
+		<durability>30</durability>
+		<type>Anima</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Lightning</name>
+		<attack>4</attack>
+		<hit>95</hit>
+		<crit>5</crit>
+		<weight>6</weight>
+		<durability>35</durability>
+		<type>Light</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Shine</name>
+		<attack>6</attack>
+		<hit>90</hit>
+		<crit>8</crit>
+		<weight>8</weight>
+		<durability>30</durability>
+		<type>Light</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Divine</name>
+		<attack>8</attack>
+		<hit>85</hit>
+		<crit>10</crit>
+		<weight>12</weight>
+		<durability>25</durability>
+		<type>Light</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Purge</name>
+		<attack>10</attack>
+		<hit>75</hit>
+		<crit>5</crit>
+		<weight>20</weight>
+		<durability>5</durability>
+		<type>Light</type>
+		<range>10</range>
+	</weapon>
+
+	<weapon>
+		<name>Aura</name>
+		<attack>12</attack>
+		<hit>85</hit>
+		<crit>15</crit>
+		<weight>15</weight>
+		<durability>20</durability>
+		<type>Light</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Ivaldi</name>
+		<attack>17</attack>
+		<hit>90</hit>
+		<crit>5</crit>
+		<weight>10</weight>
+		<durability>30</durability>
+		<type>Light</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Flux</name>
+		<attack>7</attack>
+		<hit>80</hit>
+		<crit>0</crit>
+		<weight>8</weight>
+		<durability>45</durability>
+		<type>Dark</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Luna</name>
+		<attack>0</attack>
+		<hit>50</hit>
+		<crit>10</crit>
+		<weight>12</weight>
+		<durability>30</durability>
+		<type>Dark</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Nosferatu</name>
+		<attack>10</attack>
+		<hit>70</hit>
+		<crit>0</crit>
+		<weight>14</weight>
+		<durability>20</durability>
+		<type>Dark</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Eclipse</name>
+		<attack>0</attack>
+		<hit>30</hit>
+		<crit>0</crit>
+		<weight>12</weight>
+		<durability>5</durability>
+		<type>Dark</type>
+		<range>10</range>
+	</weapon>
+
+	<weapon>
+		<name>Fenrir</name>
+		<attack>15</attack>
+		<hit>70</hit>
+		<crit>0</crit>
+		<weight>18</weight>
+		<durability>20</durability>
+		<type>Dark</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Naglfar</name>
+		<attack>25</attack>
+		<hit>95</hit>
+		<crit>0</crit>
+		<weight>18</weight>
+		<durability>999999</durability>
+		<type>Dark</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Gleipnir</name>
+		<attack>23</attack>
+		<hit>80</hit>
+		<crit>0</crit>
+		<weight>20</weight>
+		<durability>30</durability>
+		<type>Dark</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Shadowshot</name>
+		<attack>13</attack>
+		<hit>70</hit>
+		<crit>5</crit>
+		<weight>20</weight>
+		<durability>5</durability>
+		<type>Monster</type>
+		<range>10</range>
+	</weapon>
+
+	<weapon>
+		<name>Demon Surge</name>
+		<attack>11</attack>
+		<hit>80</hit>
+		<crit>0</crit>
+		<weight>10</weight>
+		<durability>999999</durability>
+		<type>Monster</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Crimson Eye</name>
+		<attack>14</attack>
+		<hit>70</hit>
+		<crit>5</crit>
+		<weight>13</weight>
+		<durability>999999</durability>
+		<type>Monster</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Evil Eye</name>
+		<attack>7</attack>
+		<hit>85</hit>
+		<crit>0</crit>
+		<weight>6</weight>
+		<durability>999999</durability>
+		<type>Monster</type>
+		<range>2</range>
+	</weapon>
+
+	<weapon>
+		<name>Stone</name>
+		<attack>0</attack>
+		<hit>65</hit>
+		<crit>0</crit>
+		<weight>8</weight>
+		<durability>5</durability>
+		<type>Monster</type>
+		<range>3</range>
+	</weapon>
+
+	<weapon>
+		<name>Heal</name>
+		<attack>7</attack>
+		<hit>-1</hit>
+		<crit>-1</crit>
+		<weight>-1</weight>
+		<durability>30</durability>
+		<type>Staff</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Mend</name>
+		<attack>13</attack>
+		<hit>-1</hit>
+		<crit>-1</crit>
+		<weight>-1</weight>
+		<durability>20</durability>
+		<type>Staff</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Recover</name>
+		<attack>20</attack>
+		<hit>-1</hit>
+		<crit>-1</crit>
+		<weight>-1</weight>
+		<durability>15</durability>
+		<type>Staff</type>
+		<range>1</range>
+	</weapon>
+
+	<weapon>
+		<name>Physic</name>
+		<attack>13</attack>
+		<hit>-1</hit>
+		<crit>-1</crit>
+		<weight>-1</weight>
+		<durability>15</durability>
+		<type>Staff</type>
+		<range>10</range>
+	</weapon>
+
+	<weapon>
+		<name>Fortify</name>
+		<attack>40</attack>
+		<hit>-1</hit>
+		<crit>-1</crit>
+		<weight>-1</weight>
+		<durability>8</durability>
+		<type>Staff</type>
+		<range>6</range>
+	</weapon>
+
+	<weapon>
+		<name>Latona</name>
+		<attack>60</attack>
+		<hit>-1</hit>
+		<crit>-1</crit>
+		<weight>-1</weight>
+		<durability>3</durability>
+		<type>Staff</type>
+		<range>99</range>
+	</weapon>
+
+</weaponList>
